@@ -1,9 +1,13 @@
 import { TextField } from '@mui/material'
-import React from 'react'
+import React, { FC } from 'react'
 
-const Input = () => {
+interface InputProps {
+    label: string
+}
+
+const Input: FC<InputProps> = ({label}) => {
     return (
-        <TextField variant="filled" margin='normal' />
+        <TextField label={label} variant="filled" margin='normal' />
     )
 }
 
