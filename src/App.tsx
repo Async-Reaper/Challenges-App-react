@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 import Sidebar from './components/Sidebar/Sidebar';
 import Login from './pages/publicPages/Login';
+import Signup from './pages/publicPages/Signup';
 
 const AppWrapper = styled('div')({
   display: 'grid',
@@ -16,7 +17,7 @@ function App() {
     <BrowserRouter>
       <AppWrapper>
         <Sidebar />
-        <Login />
+        <Signup />
       </AppWrapper>
     </BrowserRouter>
   );
