@@ -15,7 +15,7 @@ const Aside = styled('aside')({
 const Sidebar: FC = () => {
     return (
         <Aside>
-            <SidebarPrivate />
+            <SidebarPublic />
         </Aside>
     )
 }
