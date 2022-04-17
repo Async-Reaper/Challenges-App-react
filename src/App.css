@@ -1,0 +1,10 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  background: #141414;
+  color: #002f63;
+}
