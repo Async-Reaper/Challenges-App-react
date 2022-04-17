@@ -1,21 +1,11 @@
-import { Button } from '@mui/material'
-import React from 'react'
-import FormWrapper from '../../components/FormWrapper/FormWrapper'
-import Input from '../../components/Input/Input'
+import React, { FC } from 'react'
+import FormSignup from '../../components/Forms/FormSignup'
 import MainWrapper from '../../components/MainWrapper/MainWrapper'
 
-const Signup = () => {
+const Signup: FC = () => {
     return (
         <MainWrapper>
-            <FormWrapper>
-                <Input label='First name'/>
-                <Input label='Surname'/>
-                <Input label='Username'/>
-                <Input label='Email'/>
-                <Input label='Password'/>
-                <Input label='Repeat password'/>
-                <Button variant="contained">Signup</Button>
-            </FormWrapper>
+            <FormSignup />
         </MainWrapper>
     )
 }
