@@ -1,11 +1,12 @@
 import React, { FC } from 'react'
 import FormLogin from '../../components/Forms/FormLogin'
+import MainWrapper from '../../components/MainWrapper/MainWrapper'
 
 const Login: FC = () => {
     return (
-        <main>
+        <MainWrapper>
             <FormLogin />
-        </main>
+        </MainWrapper>
     )
 }
 
