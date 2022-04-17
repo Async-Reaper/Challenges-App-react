@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import React, { FC } from 'react'
+import SidebarPublic from './SidebarPublic'
 
 const Aside = styled('aside')({
     display: 'flex',
@@ -15,8 +16,7 @@ const Aside = styled('aside')({
 const Sidebar: FC = () => {
     return (
         <Aside>
-            <div>login</div>
-            <div>signup</div>
+            <SidebarPublic />
         </Aside>
     )
 }
