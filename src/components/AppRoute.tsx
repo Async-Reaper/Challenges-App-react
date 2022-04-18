@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
-import PrivateRoute from '../routes/PrivateRoute'
-import PublicRoute from '../routes/PublicRoute'
+import PrivateRoute from '../router/PrivateRoute'
+import PublicRoute from '../router/PublicRoute'
 
 const AppRoute: FC = () => {
     const b: boolean = false
