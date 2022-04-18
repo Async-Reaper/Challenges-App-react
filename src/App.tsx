@@ -2,9 +2,8 @@ import styled from '@emotion/styled';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import './App.css';
+import AppRoute from './components/AppRoute';
 import Sidebar from './components/UI/Sidebar/Sidebar';
-import Login from './pages/publicPages/Login';
-import Signup from './pages/publicPages/Signup';
 
 const AppWrapper = styled('div')({
   display: 'grid',
@@ -17,7 +16,7 @@ function App() {
     <BrowserRouter>
       <AppWrapper>
         <Sidebar />
-        <Signup />
+        <AppRoute/>
       </AppWrapper>
     </BrowserRouter>
   );
