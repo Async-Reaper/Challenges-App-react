@@ -1,7 +1,7 @@
 import { Button } from '@mui/material'
 import React, { FC } from 'react'
-import FormWrapper from '../FormWrapper/FormWrapper'
-import Input from '../Input/Input'
+import FormWrapper from '../UI/FormWrapper/FormWrapper'
+import Input from '../UI/Input/Input'
 
 const FormLogin: FC = () => {
     return (

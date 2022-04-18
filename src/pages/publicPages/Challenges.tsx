@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import MainWrapper from '../../components/MainWrapper/MainWrapper'
+import MainWrapper from '../../components/UI/MainWrapper/MainWrapper'
 
 const Challenges: FC = () => {
     return (

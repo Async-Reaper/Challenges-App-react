@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import './App.css';
-import Sidebar from './components/Sidebar/Sidebar';
+import Sidebar from './components/UI/Sidebar/Sidebar';
 import Login from './pages/publicPages/Login';
 import Signup from './pages/publicPages/Signup';
 
