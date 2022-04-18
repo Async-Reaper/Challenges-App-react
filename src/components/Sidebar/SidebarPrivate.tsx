@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import { Button } from '@mui/material'
 import React, { FC } from 'react'
+import { Link } from 'react-router-dom'
 
 const AsidePrivate = styled('div')({
     display: 'grid',
@@ -12,9 +13,11 @@ const AsidePrivate = styled('div')({
 const SidebarPrivate: FC = () => {
     return (
         <AsidePrivate>
-            <span>Settings</span>
-            <span>Challenges</span>
-            <Button variant="contained">signout</Button>
+            <Link to={'/settings'}>Settings</Link>
+            <Link to={'/challenges'}>Challenges</Link>
+            <Button variant="contained">
+                <Link to={'challenges'}>signout</Link>    
+            </Button>
         </AsidePrivate>
     )
 }

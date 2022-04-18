@@ -5,4 +5,3 @@ export const publicRoutes = [
     {path: '/login', element: <Login />},
     {path: '/signup', element: <Signup />}
 ]
-
