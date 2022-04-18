@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import React, { FC } from 'react'
+import { Link } from 'react-router-dom'
 
 const AsidePublic = styled('div')({
     display: 'flex',
@@ -9,8 +10,8 @@ const AsidePublic = styled('div')({
 const SidebarPublic: FC = () => {
     return (
         <AsidePublic>
-            <div>login</div>
-            <div>signup</div>
+            <Link to={'/login'}>login</Link>
+            <Link to={'/signup'}>signup</Link>
         </AsidePublic>
     )
 }
