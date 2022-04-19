@@ -35,3 +35,6 @@ const loginSlice = createSlice({
         }
     }
 })
+
+export default loginSlice.reducer
+export const {loginFetch, loginFetchError, loginFetchSuccess} = loginSlice.actions
