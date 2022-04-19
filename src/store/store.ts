@@ -1,9 +1,9 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { type } from "os";
+import challengesReducer from "./reducers/challengesReducer";
 
 
 const rootReducer = combineReducers({
-
+    challenge: challengesReducer,
 })
 
 export const setupStore = () => {
