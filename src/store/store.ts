@@ -1,14 +1,16 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import challengesReducer from "./reducers/challengesReducer";
-
+import { postApi } from '../services/PostService'
 
 const rootReducer = combineReducers({
     challenge: challengesReducer,
+    [postApi.reducerPath]: postApi.reducer
 })
 
 export const setupStore = () => {
     return configureStore({
-        reducer: rootReducer
+        reducer: rootReducer,
+        middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(postApi.middleware)
     })
 }
 

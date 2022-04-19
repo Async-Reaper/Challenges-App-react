@@ -12,6 +12,7 @@ const SidebarPublic: FC = () => {
         <AsidePublic>
             <Link to={'/login'}>login</Link>
             <Link to={'/signup'}>signup</Link>
+            <Link to={'/challenges'}>challenges</Link>
         </AsidePublic>
     )
 }

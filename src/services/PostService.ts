@@ -9,7 +9,7 @@ export const postApi = createApi({
     endpoints: (build) => ({
         getAllChallenges: build.query<IChallenge[], string>({
             query: () => ({
-                url: 'challenge/get_challenges_list/',
+                url: 'challenges/get_challenges_list/',
             }),
             providesTags: res => ['Challenge']
         })
