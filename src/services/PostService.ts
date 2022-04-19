@@ -2,12 +2,12 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { IChallenge } from '../models/IChallenge'
 
 
-export const challenges = createApi({
-    reducerPath: 'challenges',
+export const postApi = createApi({
+    reducerPath: 'getAllChallenges',
     baseQuery: fetchBaseQuery({ baseUrl: 'http://bahbka.pythonanywhere.com/'}),
     tagTypes: ['Challenge'],
     endpoints: (build) => ({
-        getAllChallenges: build.query<IChallenge[], IChallenge>({
+        getAllChallenges: build.query<IChallenge[], string>({
             query: () => ({
                 url: 'challenge/get_challenges_list/',
             }),
