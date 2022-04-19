@@ -1,9 +1,7 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import challengesReducer from "./reducers/challengesReducer";
 import { postApi } from '../services/PostService'
 
 const rootReducer = combineReducers({
-    challenge: challengesReducer,
     [postApi.reducerPath]: postApi.reducer
 })
 
