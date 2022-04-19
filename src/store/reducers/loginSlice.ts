@@ -4,6 +4,7 @@ import { IUserToken } from "../../models/IUserToken";
 
 interface ILoginSlice {
     userTokenAndSignature: IUserToken | null;
+    loginStatus: boolean;
     loading: boolean;
     error: boolean;
     answer: string
@@ -11,6 +12,7 @@ interface ILoginSlice {
 
 const initialState: ILoginSlice = {
     userTokenAndSignature: null,
+    loginStatus: true,
     loading: false,
     error: false,
     answer: ''
@@ -26,6 +28,7 @@ const loginSlice = createSlice({
         loginFetchSuccess(state, action) {
             state.loading = false;
             state.userTokenAndSignature = action.payload;
+            state.loginStatus = true;
             state.error = false;
         },
         loginFetchError(state, action) {
