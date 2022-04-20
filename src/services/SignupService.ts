@@ -12,9 +12,12 @@ export const signupUser = (data: IUserSignup) => {
             
             const response = await fetch( urlDomain + urlSignup, {
                 method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8'
+                },
                 body: JSON.stringify(data)
             })
-
+            console.log(data)
             const res: ISignupAnswer = await response.json();
             dispatch(signupFetchSuccess(res.message))
         } catch (error) {
