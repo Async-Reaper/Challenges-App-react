@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { IChallenge } from '../models/IChallenge'
-import { urlDomain, urlGetChallenges } from '../constants/URL'
+import { urlDomain, urlGetChallengeById, urlGetChallenges } from '../constants/URL'
+import { IChallengeDetails } from '../models/IChallengeDetail'
 
 export const postApi = createApi({
     reducerPath: 'getAllChallenges',
@@ -12,6 +13,11 @@ export const postApi = createApi({
                 url: urlGetChallenges,
             }),
             providesTags: res => ['Challenge']
+        }),
+        getChallengeById: build.query<IChallengeDetails, number>({
+            query: (id: number) => ({
+                url: urlGetChallengeById + id
+            }),
         })
     })
 })
