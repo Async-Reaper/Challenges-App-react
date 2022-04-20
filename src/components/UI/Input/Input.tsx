@@ -3,6 +3,7 @@ import React, { FC } from 'react'
 
 interface InputProps {
     label: string
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 const Input: FC<InputProps> = ({label}) => {
