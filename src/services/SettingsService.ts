@@ -3,7 +3,7 @@ import { IChangePassword } from "../models/IChangePassword"
 import { changePasswordError, changePasswordFetch, changePasswordSuccess } from "../store/reducers/settingsSlice"
 import { AppDispatch } from "../store/store"
 
-const changePassword = (data: IChangePassword) => {
+export const changePassword = (data: IChangePassword) => {
     return async (dispatch: AppDispatch) => {
         try {
             dispatch(changePasswordFetch())
