@@ -1,24 +1,26 @@
-import { AppDispatch } from "../store/store"
-import { logoutFetch, logoutFetchSuccess } from "../store/reducers/loginSlice"
 import { urlDomain, urlSignout } from "../constants/URL"
-import { IUserToken } from "../models/IUserToken"
+import { logoutFetch, logoutFetchSuccess } from "../store/reducers/loginSlice"
+import { AppDispatch } from "../store/store"
 
 
 export const signoutUser = () => {
+
     return async (dispatch: AppDispatch) => {
         try {
             dispatch(logoutFetch())
             const response = await fetch(urlDomain + urlSignout, {
-                method: 'GET',
                 headers: {
-                    token: JSON.parse(localStorage.getItem('token') || ''),
-                    signature: JSON.parse(localStorage.getItem('signature') || ''),
+                    'Content-Type': 'application/json',
+                    token: localStorage.getItem('token') || '',
+                    signature: localStorage.getItem('signature') || '',
                 }
             })
 
-            if (response.ok) dispatch(logoutFetchSuccess())
+            if (response.ok) {
+                dispatch(logoutFetchSuccess())
+            }
         } catch (error) {
-            
+            console.log(error)
         }
     }
 }

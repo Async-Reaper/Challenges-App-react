@@ -2,6 +2,8 @@ import styled from '@emotion/styled'
 import { Button } from '@mui/material'
 import React, { FC } from 'react'
 import { Link } from 'react-router-dom'
+import { useTypedDispatch } from '../../../hooks/useTypedDispatch'
+import { signoutUser } from '../../../services/SignoutService'
 
 const AsidePrivate = styled('div')({
     display: 'grid',
@@ -11,12 +13,13 @@ const AsidePrivate = styled('div')({
 })
 
 const SidebarPrivate: FC = () => {
+    const dispatch = useTypedDispatch()
     return (
         <AsidePrivate>
             <Link to={'/settings'}>Settings</Link>
             <Link to={'/challenges'}>Challenges</Link>
-            <Button variant="contained">
-                <Link to={'challenges'}>signout</Link>    
+            <Button type='submit' onClick={() => dispatch(signoutUser())} variant="contained">
+                signout
             </Button>
         </AsidePrivate>
     )
