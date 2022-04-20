@@ -1,11 +1,13 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { postApi } from '../services/PostService'
 import loginSlice from "./reducers/loginSlice";
+import settingsSlice from "./reducers/settingsSlice";
 import signupSlice from "./reducers/signupSlice";
 
 const rootReducer = combineReducers({
     login: loginSlice,
     signup: signupSlice,
+    settings: settingsSlice,
     [postApi.reducerPath]: postApi.reducer
 })
 
