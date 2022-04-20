@@ -22,7 +22,7 @@ const settingsSlice = createSlice({
         },
         changePasswordSuccess(state) {
             state.loading = false;
-            state.answer = 'Account deleted.'
+            state.answer = 'Password changed.'
             localStorage.removeItem('token');
             localStorage.removeItem('signature');
         },
