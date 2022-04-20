@@ -50,4 +50,4 @@ const settingsSlice = createSlice({
 })
 
 export default settingsSlice.reducer
-export const { changePasswordFetch, changePasswordSuccess, changePasswordError } = settingsSlice.actions
+export const { changePasswordFetch, changePasswordSuccess, changePasswordError, changeEmailFetch, changeEmailSuccess, changeEmailError } = settingsSlice.actions

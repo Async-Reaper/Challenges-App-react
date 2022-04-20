@@ -1,6 +1,7 @@
 import { urlChangePassword, urlDomain } from "../constants/URL"
+import { IChangeEmail } from "../models/IChangeEmail"
 import { IChangePassword } from "../models/IChangePassword"
-import { changePasswordError, changePasswordFetch, changePasswordSuccess } from "../store/reducers/settingsSlice"
+import { changeEmailError, changeEmailFetch, changeEmailSuccess, changePasswordError, changePasswordFetch, changePasswordSuccess } from "../store/reducers/settingsSlice"
 import { AppDispatch } from "../store/store"
 
 export const changePassword = (data: IChangePassword) => {
@@ -10,6 +11,7 @@ export const changePassword = (data: IChangePassword) => {
 
             const response = await fetch (urlDomain + urlChangePassword, {
                 method: 'PUT',
+                body: JSON.stringify(data),
                 headers: {
                     'Content-Type': 'application/json',
                     token: localStorage.getItem('token') || '',
@@ -21,6 +23,28 @@ export const changePassword = (data: IChangePassword) => {
             
         } catch (error) {
             dispatch(changePasswordError(error))
+        }
+    }
+}
+
+export const changeEmail = (data: IChangeEmail) => {
+    return async (dispatch: AppDispatch) => {
+        try {
+            dispatch(changeEmailFetch())
+
+            const response = await fetch (urlDomain + urlChangePassword, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    token: localStorage.getItem('token') || '',
+                    signature: localStorage.getItem('signature') || '',
+                }
+            })
+
+            dispatch(changeEmailSuccess())
+            
+        } catch (error) {
+            dispatch(changeEmailError(error))
         }
     }
 }
