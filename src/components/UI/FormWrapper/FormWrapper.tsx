@@ -3,7 +3,8 @@ import React, { FC } from 'react'
 
 interface FormProps {
     children: any;
-    onSumbit: (e: React.MouseEvent<HTMLFormElement>) => void
+    method: string;
+    onSubmit: (e: React.MouseEvent<HTMLFormElement>) => void
 }
 
 const Form = styled('form')({
@@ -14,9 +15,9 @@ const Form = styled('form')({
     borderRadius: 10,
 })
 
-const FormWrapper: FC<FormProps> = ({children}) => {
+const FormWrapper: FC<FormProps> = ({children, onSubmit, method}) => {
     return (
-        <Form>{children}</Form>
+        <Form method={method} onSubmit={onSubmit}>{children}</Form>
     )
 }
 

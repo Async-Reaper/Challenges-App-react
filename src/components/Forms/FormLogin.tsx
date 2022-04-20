@@ -20,7 +20,7 @@ const FormLogin: FC = () => {
     }
 
     return (
-        <FormWrapper onSumbit={e => handleLogin(e)}>
+        <FormWrapper method='POST' onSubmit={e => handleLogin(e)}>
             <Input 
                 label='Login'
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => dataLogin.username = e.target.value}
