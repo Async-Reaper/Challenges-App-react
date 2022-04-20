@@ -9,3 +9,4 @@ export const urlSignout = 'users/logout/';
 
 export const urlChangePassword = 'users/change_user_password/'
 export const urlChangeEmail = 'users/change_user_email/'
+export const urlDeleteAccount = 'users/delete_user_account/'
