@@ -23,6 +23,7 @@ const loginSlice = createSlice({
     reducers: {
         loginFetch(state) {
             state.loading = true;
+            state.error = false;
         },
         loginFetchSuccess(state, action) {
             state.loading = false;
@@ -34,9 +35,12 @@ const loginSlice = createSlice({
             state.loading = false;
             state.error = true;
             state.answer = action.payload
+        },
+        setLoginStatus(state, action) {
+            state.loginStatus = action.payload
         }
     }
 })
 
 export default loginSlice.reducer
-export const {loginFetch, loginFetchError, loginFetchSuccess} = loginSlice.actions
+export const {setLoginStatus, loginFetch, loginFetchError, loginFetchSuccess} = loginSlice.actions
