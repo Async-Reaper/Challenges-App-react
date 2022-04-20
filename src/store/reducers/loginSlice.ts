@@ -11,7 +11,7 @@ interface ILoginSlice {
 
 const initialState: ILoginSlice = {
     userTokenAndSignature: null,
-    loginStatus: true,
+    loginStatus: false,
     loading: false,
     error: false,
     answer: ''

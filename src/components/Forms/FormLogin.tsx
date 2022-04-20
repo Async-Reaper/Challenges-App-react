@@ -29,7 +29,7 @@ const FormLogin: FC = () => {
                 label='Password'
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => dataLogin.password = e.target.value}
             />
-            <Button variant="contained">Login</Button>
+            <Button type='submit' variant="contained">Login</Button>
         </FormWrapper>
     )
 }
