@@ -29,6 +29,21 @@ const settingsSlice = createSlice({
         changePasswordError(state, action) {
             state.loading = false;
             state.answer = action.payload
+        },
+
+        changeEmailFetch(state) {
+            state.error = false;
+            state.loading = true;
+        },
+        changeEmailSuccess(state) {
+            state.loading = false;
+            state.answer = 'Password changed.'
+            localStorage.removeItem('token');
+            localStorage.removeItem('signature');
+        },
+        changeEmailError(state, action) {
+            state.loading = false;
+            state.answer = action.payload
         }
     }
     
