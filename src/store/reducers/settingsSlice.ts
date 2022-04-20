@@ -37,7 +37,7 @@ const settingsSlice = createSlice({
         },
         changeEmailSuccess(state) {
             state.loading = false;
-            state.answer = 'Password changed.'
+            state.answer = 'Email changed.'
             localStorage.removeItem('token');
             localStorage.removeItem('signature');
         },
