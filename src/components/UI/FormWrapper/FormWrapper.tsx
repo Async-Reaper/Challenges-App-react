@@ -2,7 +2,8 @@ import styled from '@emotion/styled'
 import React, { FC } from 'react'
 
 interface FormProps {
-    children: any
+    children: any;
+    onSumbit: (e: React.MouseEvent<HTMLFormElement>) => void
 }
 
 const Form = styled('form')({
