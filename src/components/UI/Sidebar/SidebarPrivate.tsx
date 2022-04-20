@@ -18,9 +18,11 @@ const SidebarPrivate: FC = () => {
         <AsidePrivate>
             <Link to={'/settings'}>Settings</Link>
             <Link to={'/challenges'}>Challenges</Link>
-            <Button type='submit' onClick={() => dispatch(signoutUser())} variant="contained">
-                signout
-            </Button>
+            <Link to={'/challenges'}>
+                <Button type='submit' onClick={() => dispatch(signoutUser())} variant="contained">
+                    signout
+                </Button>
+            </Link>
         </AsidePrivate>
     )
 }
