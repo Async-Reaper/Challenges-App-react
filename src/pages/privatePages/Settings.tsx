@@ -1,10 +1,13 @@
-import React from 'react'
-import MainWrapper from '../../components/UI/MainWrapper/MainWrapper'
+import React, { FC } from 'react';
+import AccordionSettings from '../../components/UI/Accordion/AccordionSettings';
+import MainWrapper from '../../components/UI/MainWrapper/MainWrapper';
+import Login from '../publicPages/Login';
 
-const Settings = () => {
+const Settings: FC = () => {
     return (
         <MainWrapper>
-            <div>Settings</div>
+            <AccordionSettings name='Change password' params={<Login />}/>
+            
         </MainWrapper>
     )
 }
