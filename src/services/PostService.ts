@@ -14,9 +14,14 @@ export const postApi = createApi({
             }),
             providesTags: res => ['Challenge']
         }),
-        getChallengeById: build.query<IChallengeDetails, number>({
-            query: (id: number) => ({
-                url: urlGetChallengeById + id
+        getChallengeById: build.query<IChallengeDetails, string>({
+            query: (id: string) => ({
+                url: urlGetChallengeById + id,
+                headers: {
+                    token: localStorage.getItem('token') || '',
+                    signature: localStorage.getItem('signature') || '',
+                    'Content-Type': 'application/json',
+                }
             }),
         })
     })

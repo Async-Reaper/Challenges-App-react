@@ -6,8 +6,7 @@ import { postApi } from '../../services/PostService'
 
 const Challenge: FC = () => {
     const params = useParams()
-    console.log(params.id)
-    const {data: challenge, isLoading} = postApi.useGetChallengeByIdQuery(8)
+    const {data: challenge, isLoading} = postApi.useGetChallengeByIdQuery(params.id!)
     return (
         <MainWrapper>
             {isLoading && <h1>loading</h1>}
