@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import React, { FC } from 'react'
+import { useTypedSelector } from '../../../hooks/useTypedSelector'
 import SidebarPrivate from './SidebarPrivate'
 import SidebarPublic from './SidebarPublic'
 
@@ -13,9 +14,10 @@ const Aside = styled('aside')({
 })
 
 const Sidebar: FC = () => {
+    const {loginStatus} = useTypedSelector(state => state.login)
     return (
         <Aside>
-            <SidebarPublic />
+            {loginStatus ? <SidebarPrivate/> : <SidebarPublic />}
         </Aside>
     )
 }
