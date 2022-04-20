@@ -17,35 +17,48 @@ const FormSignup: FC = () => {
         password2: ''
     }
 
-    const handleSignup = (e: React.MouseEvent<HTMLFormElement>) => {
+    const handleSignup = (e: React.MouseEvent<HTMLFormElement>, data: IUserSignup) => {
         e.preventDefault();
-        dispatch(signupUser(signupData))
+        console.log(data)
+        dispatch(signupUser(data))
     }
     return (
-        <FormWrapper method='POST' onSubmit={e => handleSignup(e)}>
+        <FormWrapper method='POST' onSubmit={e => handleSignup(e, signupData)}>
             <Input 
                 label='First name'
-                onChange={e => signupData.first_name = e.target.value}
+                onChange={e => {
+                    signupData.first_name = e.target.value
+                }}
             />
             <Input 
                 label='Surname'
-                onChange={e => signupData.surname = e.target.value}
+                onChange={e => {
+                    signupData.surname = e.target.value
+                }}
             />
             <Input 
                 label='Username'
-                onChange={e => signupData.username = e.target.value}
+                onChange={e => {
+                    signupData.username = e.target.value
+                }}
             />
             <Input 
                 label='Email'
-                onChange={e => signupData.email = e.target.value}
+                onChange={e => {
+                    signupData.email = e.target.value
+                }}
             />
             <Input 
                 label='Password'
-                onChange={e => signupData.password = e.target.value}
+                onChange={e => {
+                    signupData.password = e.target.value
+                }}
             />
             <Input 
                 label='Repeat password'
-                onChange={e => signupData.password2 = e.target.value}
+                onChange={e => {
+                    signupData.password2 = e.target.value
+                }}
             />
             <Button type='submit' variant="contained">Signup</Button>
         </FormWrapper>

@@ -6,9 +6,9 @@ interface InputProps {
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-const Input: FC<InputProps> = ({label}) => {
+const Input: FC<InputProps> = ({label, onChange}) => {
     return (
-        <TextField label={label} variant="filled" margin='normal' />
+        <TextField label={label} variant="filled" margin='normal' onChange={onChange}/>
     )
 }
 
