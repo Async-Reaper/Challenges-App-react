@@ -46,17 +46,17 @@ const settingsSlice = createSlice({
             state.answer = action.payload
         },
 
-        changDeleteAccountFetch(state) {
+        deleteAccountFetch(state) {
             state.error = false;
             state.loading = true;
         },
-        changDeleteAccountSuccess(state) {
+        deleteAccountSuccess(state) {
             state.loading = false;
             state.answer = 'Account deleted.'
             localStorage.removeItem('token');
             localStorage.removeItem('signature');
         },
-        chanDeleteAccountlError(state, action) {
+        deleteAccountlError(state, action) {
             state.loading = false;
             state.answer = action.payload
         }
@@ -65,4 +65,4 @@ const settingsSlice = createSlice({
 })
 
 export default settingsSlice.reducer
-export const { changDeleteAccountFetch, changDeleteAccountSuccess, chanDeleteAccountlError, changePasswordFetch, changePasswordSuccess, changePasswordError, changeEmailFetch, changeEmailSuccess, changeEmailError } = settingsSlice.actions
+export const { deleteAccountFetch, deleteAccountSuccess, deleteAccountlError, changePasswordFetch, changePasswordSuccess, changePasswordError, changeEmailFetch, changeEmailSuccess, changeEmailError } = settingsSlice.actions
