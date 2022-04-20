@@ -1,3 +1,4 @@
+import { Button } from '@mui/material'
 import React, { FC } from 'react'
 import { IChangeEmail } from '../../models/IChangeEmail'
 import FormWrapper from '../UI/FormWrapper/FormWrapper'
@@ -15,6 +16,7 @@ const FormChangeEmail: FC = () => {
     return (
         <FormWrapper method='POST' onSubmit={e => handleChangeEmail(e)}>
             <Input label='New email' onChange={e => newEmail.new_user_email = e.target.value}/>
+            <Button type='submit' variant="contained">Change email</Button>
         </FormWrapper>
     )
 }
