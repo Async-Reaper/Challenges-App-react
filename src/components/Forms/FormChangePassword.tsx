@@ -1,3 +1,4 @@
+import { Button } from '@mui/material'
 import React, { FC } from 'react'
 import { IChangePassword } from '../../models/IChangePassword'
 import FormWrapper from '../UI/FormWrapper/FormWrapper'
@@ -19,6 +20,7 @@ const FormChangePassword: FC = () => {
             <Input label='Old password' onChange={e => changeNewPassword.old_password = e.target.value}/>
             <Input label='New password' onChange={e => changeNewPassword.new_password = e.target.value}/>
             <Input label='New password' onChange={e => changeNewPassword.new_password2 = e.target.value}/>
+            <Button type='submit' variant="contained">Change password</Button>
         </FormWrapper>
     )
 }
