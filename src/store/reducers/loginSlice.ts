@@ -34,13 +34,23 @@ const loginSlice = createSlice({
         loginFetchError(state, action) {
             state.loading = false;
             state.error = true;
-            state.answer = action.payload
+            state.answer = action.payload;
         },
         setLoginStatus(state, action) {
-            state.loginStatus = action.payload
+            state.loginStatus = action.payload;
+        },
+        logoutFetch(state) {
+            state.loading = true;
+            state.error = false;
+        },
+        logoutFetchSuccess(state) {
+            state.loading = false;
+            state.loginStatus = false;
+            localStorage.removeItem('token');
+            localStorage.removeItem('signature');
         }
     }
 })
 
 export default loginSlice.reducer
-export const {setLoginStatus, loginFetch, loginFetchError, loginFetchSuccess} = loginSlice.actions
+export const {setLoginStatus, loginFetch, loginFetchError, loginFetchSuccess, logoutFetch, logoutFetchSuccess} = loginSlice.actions
