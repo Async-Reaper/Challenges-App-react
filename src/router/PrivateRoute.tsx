@@ -8,9 +8,8 @@ const PrivateRoute: FC = () => {
     
     return (
         <Routes>
-            <Route path='/challenges/' element={<Challenges />}>
-                <Route path=':id' element={<Challenge />}/>
-            </Route>
+            <Route path='/challenges/' element={<Challenges />}/>
+            <Route path='/challenges/:id' element={<Challenge />}/>
             <Route path='/settings' element={<Settings />}/>
             <Route path='*' element={<Challenges />} />
         </Routes>

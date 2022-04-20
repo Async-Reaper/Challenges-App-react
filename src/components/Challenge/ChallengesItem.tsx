@@ -1,4 +1,7 @@
+import { Button } from '@mui/material'
 import React, { FC } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useTypedSelector } from '../../hooks/useTypedSelector'
 import { IChallenge } from '../../models/IChallenge'
 import ChallengeWrapper from '../UI/ChallengeWrapper/ChallengeWrapper'
 
@@ -7,6 +10,7 @@ interface ChallengeItemProps {
 }
 
 const ChallengesItem: FC<ChallengeItemProps> = ({challenge}) => {
+    const navigate = useNavigate()
     return (
         <ChallengeWrapper>
             <li>Name: {challenge.name}</li>
@@ -16,6 +20,7 @@ const ChallengesItem: FC<ChallengeItemProps> = ({challenge}) => {
             <li>Bets sum: {challenge.bets_sum}</li>
             <li>Members amount: {challenge.members_amount}</li>
             <li>Finish datetime: {challenge.finish_datetime}</li>
+            <Button variant="contained" onClick={() => navigate(`/challenges/${challenge.challenge_id}`)}>Open</Button>
         </ChallengeWrapper>
     )
 }
