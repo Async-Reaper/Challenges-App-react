@@ -3,8 +3,10 @@ import React, { FC } from 'react'
 import { Link } from 'react-router-dom'
 
 const AsidePublic = styled('div')({
-    display: 'flex',
-    justifyContent: 'space-between'
+    display: 'grid',
+    gridTemplateRows: '1fr',
+    gridTemplateColumns: '1fr 1fr',
+    gridGap: '15px 0',
 })
 
 const SidebarPublic: FC = () => {
