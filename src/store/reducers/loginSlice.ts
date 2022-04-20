@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IUserLogin } from "../../models/IUserLogin";
 import { IUserToken } from "../../models/IUserToken";
 
 interface ILoginSlice {
