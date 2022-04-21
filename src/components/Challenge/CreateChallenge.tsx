@@ -3,7 +3,7 @@ import React from 'react'
 import { useTypedDispatch } from '../../hooks/useTypedDispatch'
 import { setStatusModal } from '../../store/reducers/modalSlice'
 import FormCreateChallenge from '../Forms/FormCreateChallenge'
-import ModalWindow from '../ModalWindow/ModalWindow'
+import ModalWindow from '../UI/ModalWindow/ModalWindow'
 
 const CreateChallenge = () => {
     const dispatch = useTypedDispatch()

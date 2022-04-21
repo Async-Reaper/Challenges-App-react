@@ -1,4 +1,3 @@
-import { Button } from '@mui/material'
 import React, { FC } from 'react'
 import ChallengesItem from '../../components/Challenge/ChallengesItem'
 import CreateChallenge from '../../components/Challenge/CreateChallenge'

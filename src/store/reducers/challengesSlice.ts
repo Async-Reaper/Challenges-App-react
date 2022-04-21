@@ -25,7 +25,7 @@ const challengesSlice = createSlice({
             state.answer = 'Challenge created.'
         },
         createChalleneError(state, action) {
-            state.loading = false,
+            state.loading = false;
             state.answer = action.payload
         }
     }
