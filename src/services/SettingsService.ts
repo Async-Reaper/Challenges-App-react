@@ -1,6 +1,7 @@
 import { urlChangePassword, urlDeleteAccount, urlDomain } from "../constants/URL"
 import { IChangeEmail } from "../models/IChangeEmail"
 import { IChangePassword } from "../models/IChangePassword"
+import { logoutFetchSuccess } from "../store/reducers/loginSlice"
 import { changeEmailError, changeEmailFetch, changeEmailSuccess, changePasswordError, changePasswordFetch, changePasswordSuccess, deleteAccountFetch, deleteAccountlError, deleteAccountSuccess } from "../store/reducers/settingsSlice"
 import { AppDispatch } from "../store/store"
 
@@ -18,8 +19,12 @@ export const changePassword = (data: IChangePassword) => {
                     signature: localStorage.getItem('signature') || '',
                 }
             })
-
-            dispatch(changePasswordSuccess())
+            if (response.ok) {
+                dispatch(changePasswordSuccess())
+                dispatch(logoutFetchSuccess())
+            } else {
+                dispatch(changePasswordError('An error ocurred, please try again.'))
+            }
             
         } catch (error) {
             dispatch(changePasswordError(error))
@@ -41,8 +46,13 @@ export const changeEmail = (data: IChangeEmail) => {
                     signature: localStorage.getItem('signature') || '',
                 }
             })
-
-            dispatch(changeEmailSuccess())
+            
+            if (response.ok) {
+                dispatch(changeEmailSuccess())
+                dispatch(logoutFetchSuccess())
+            } else {
+                dispatch(changeEmailError('An error ocurred, please try again.'))
+            }
             
         } catch (error) {
             dispatch(changeEmailError(error))
@@ -64,7 +74,12 @@ export const deleteAccount = () => {
                 }
             })
 
-            dispatch(deleteAccountSuccess())
+            if (response.ok) {
+                dispatch(deleteAccountSuccess())
+                dispatch(logoutFetchSuccess())
+            } else {
+                dispatch(deleteAccountlError('An error ocurred, please try again.'))
+            }
             
         } catch (error) {
             dispatch(deleteAccountlError(error))
