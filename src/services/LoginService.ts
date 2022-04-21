@@ -21,6 +21,7 @@ export const loginUser = (data: IUserLogin) => {
             if(response.ok) {
                 const res: IUserToken = await response.json()
                 dispatch(loginFetchSuccess(res))
+                localStorage.setItem('userName', data.username)
                 localStorage.setItem('token', res.token)
                 localStorage.setItem('signature', res.signature)
             } else {
@@ -32,3 +33,4 @@ export const loginUser = (data: IUserLogin) => {
         }
     }
 }
+
