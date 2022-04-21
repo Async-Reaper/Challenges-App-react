@@ -1,11 +1,13 @@
 import { Button } from '@mui/material'
 import React, { FC } from 'react'
+import { useTypedDispatch } from '../../hooks/useTypedDispatch'
 import { ICreateChallenge } from '../../models/ICreateChallenge'
+import { createChallenge } from '../../services/ChallengesService'
 import FormWrapper from '../UI/FormWrapper/FormWrapper'
 import Input from '../UI/Input/Input'
 
 const FormCreateChallenge: FC = () => {
-
+    const dispatch = useTypedDispatch()
     const newChallenge: ICreateChallenge = {
         name: '',
         finish_datetime: '',
@@ -15,8 +17,13 @@ const FormCreateChallenge: FC = () => {
         bet: 0
     }
 
+    const handleCreateChallenge = (e: React.MouseEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        dispatch(createChallenge(newChallenge))
+    }
+
     return (
-        <FormWrapper method='POST' onSubmit={}>
+        <FormWrapper method='POST' onSubmit={e => handleCreateChallenge(e)}>
             <Input 
                 label='Finish datetime'
                 onChange={e => newChallenge.finish_datetime = e.target.value}
