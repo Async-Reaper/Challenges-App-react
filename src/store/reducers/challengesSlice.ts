@@ -27,9 +27,22 @@ const challengesSlice = createSlice({
         createChalleneError(state, action) {
             state.loading = false;
             state.answer = action.payload
-        }
+        },
+
+        acceptChallengeFetch(state) {
+            state.loading = true
+            state.error = false
+        },
+        acceptChallengeSuccess(state) {
+            state.loading = false;
+            state.answer = 'You took part in the challenge.'
+        },
+        acceptChalleneError(state, action) {
+            state.loading = false;
+            state.answer = action.payload
+        },
     }
 })
 
 export default challengesSlice.reducer
-export const {createChallengeFetch, createChallengeSuccess, createChalleneError} = challengesSlice.actions
+export const { acceptChallengeFetch, acceptChallengeSuccess, acceptChalleneError, createChallengeFetch, createChallengeSuccess, createChalleneError} = challengesSlice.actions
