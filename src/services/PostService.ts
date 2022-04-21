@@ -24,6 +24,7 @@ export const postApi = createApi({
                     'Content-Type': 'application/json',
                 }
             }),
+            providesTags: res => ['Challenge']
         }),
         getChallengeMembers: build.query<IChallengeMember[], string>({
             query: (id: string) => ({

@@ -38,7 +38,6 @@ export const acceptChallenge = (id: string) => {
             dispatch(acceptChallengeFetch());
 
             const response = await fetch(urlDomain + urlAcceptChallenge + id, {
-                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8',
                     token: localStorage.getItem('token') || '',
