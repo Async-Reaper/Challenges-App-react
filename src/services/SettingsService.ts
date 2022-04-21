@@ -1,4 +1,4 @@
-import { urlChangePassword, urlDeleteAccount, urlDomain } from "../constants/URL"
+import { urlChangeEmail, urlChangePassword, urlDeleteAccount, urlDomain } from "../constants/URL"
 import { IChangeEmail } from "../models/IChangeEmail"
 import { IChangePassword } from "../models/IChangePassword"
 import { logoutFetchSuccess } from "../store/reducers/loginSlice"
@@ -37,7 +37,7 @@ export const changeEmail = (data: IChangeEmail) => {
         try {
             dispatch(changeEmailFetch())
 
-            const response = await fetch (urlDomain + urlChangePassword, {
+            const response = await fetch (urlDomain + urlChangeEmail, {
                 method: 'PUT',
                 body: JSON.stringify(data),
                 headers: {
