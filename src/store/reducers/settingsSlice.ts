@@ -23,8 +23,6 @@ const settingsSlice = createSlice({
         changePasswordSuccess(state) {
             state.loading = false;
             state.answer = 'Password changed.'
-            localStorage.removeItem('token');
-            localStorage.removeItem('signature');
         },
         changePasswordError(state, action) {
             state.loading = false;
@@ -38,8 +36,6 @@ const settingsSlice = createSlice({
         changeEmailSuccess(state) {
             state.loading = false;
             state.answer = 'Email changed.'
-            localStorage.removeItem('token');
-            localStorage.removeItem('signature');
         },
         changeEmailError(state, action) {
             state.loading = false;
@@ -53,8 +49,6 @@ const settingsSlice = createSlice({
         deleteAccountSuccess(state) {
             state.loading = false;
             state.answer = 'Account deleted.'
-            localStorage.removeItem('token');
-            localStorage.removeItem('signature');
         },
         deleteAccountlError(state, action) {
             state.loading = false;
