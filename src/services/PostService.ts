@@ -1,7 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { IChallenge } from '../models/IChallenge'
-import { urlDomain, urlGetChallengeById, urlGetChallenges } from '../constants/URL'
+import { urlDomain, urlGetChallengeById, urlGetChallengeMembers, urlGetChallenges } from '../constants/URL'
 import { IChallengeDetails } from '../models/IChallengeDetail'
+import { IChallengeMember } from '../models/IChallengeMembers'
 
 export const postApi = createApi({
     reducerPath: 'getAllChallenges',
@@ -23,6 +24,17 @@ export const postApi = createApi({
                     'Content-Type': 'application/json',
                 }
             }),
-        })
+        }),
+        getChallengeMembers: build.query<IChallengeMember[], string>({
+            query: (id: string) => ({
+                url: urlGetChallengeMembers + id,
+                headers: {
+                    token: localStorage.getItem('token') || '',
+                    signature: localStorage.getItem('signature') || '',
+                    'Content-Type': 'application/json',
+                }
+            }),
+            providesTags: res => ['Challenge']
+        }) 
     })
 })
