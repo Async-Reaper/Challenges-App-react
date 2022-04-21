@@ -1,13 +1,17 @@
 import { Button } from '@mui/material'
 import React, { FC } from 'react'
 import { useTypedDispatch } from '../../hooks/useTypedDispatch'
+import { useTypedSelector } from '../../hooks/useTypedSelector'
 import { ICreateChallenge } from '../../models/ICreateChallenge'
 import { createChallenge } from '../../services/ChallengesService'
+import { setDate } from '../../store/reducers/dateSlice'
+import Calendar from '../UI/Calendar/Calendar'
 import FormWrapper from '../UI/FormWrapper/FormWrapper'
 import Input from '../UI/Input/Input'
 
 const FormCreateChallenge: FC = () => {
     const dispatch = useTypedDispatch()
+    const {date} = useTypedSelector(state => state.date)
     const newChallenge: ICreateChallenge = {
         name: '',
         finish_datetime: '',
@@ -24,9 +28,9 @@ const FormCreateChallenge: FC = () => {
 
     return (
         <FormWrapper method='POST' onSubmit={e => handleCreateChallenge(e)}>
-            <Input 
-                label='Finish datetime'
-                onChange={e => newChallenge.finish_datetime = e.target.value}
+            <Calendar label="Finish datetime: "
+                        value={date}
+                        onChange={(newDate: any) => dispatch(setDate(newDate))}
             />
             <Input 
                 label='Name'
