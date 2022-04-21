@@ -19,7 +19,6 @@ const FormSignup: FC = () => {
 
     const handleSignup = (e: React.MouseEvent<HTMLFormElement>, data: IUserSignup) => {
         e.preventDefault();
-        console.log(data)
         dispatch(signupUser(data))
     }
     return (

@@ -17,7 +17,6 @@ export const signupUser = (data: IUserSignup) => {
                 },
                 body: JSON.stringify(data)
             })
-            console.log(data)
             const res: ISignupAnswer = await response.json();
             dispatch(signupFetchSuccess(res.message))
         } catch (error) {
