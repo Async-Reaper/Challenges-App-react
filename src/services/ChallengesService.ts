@@ -1,6 +1,6 @@
-import { urlCreateChallenge, urlDomain } from "../constants/URL";
+import { urlAcceptChallenge, urlCreateChallenge, urlDomain } from "../constants/URL";
 import { ICreateChallenge } from "../models/ICreateChallenge";
-import { createChalleneError, createChallengeFetch, createChallengeSuccess } from "../store/reducers/challengesSlice";
+import { acceptChalleneError, acceptChallengeFetch, acceptChallengeSuccess, createChalleneError, createChallengeFetch, createChallengeSuccess } from "../store/reducers/challengesSlice";
 import { AppDispatch } from "../store/store";
 import { setStatusModal } from '../store/reducers/modalSlice'
 
@@ -28,6 +28,29 @@ export const createChallenge = (data: ICreateChallenge) => {
             }
         } catch (error) {
             dispatch(createChalleneError(error))
+        }
+    }
+}
+
+export const acceptChallenge = (id: string) => {
+    return async (dispatch: AppDispatch) => {
+        try {
+            dispatch(acceptChallengeFetch());
+
+            const response = await fetch(urlDomain + urlAcceptChallenge + id, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8',
+                    token: localStorage.getItem('token') || '',
+                    signature: localStorage.getItem('signature') || '',
+                },
+            });
+
+            if(response.ok) {
+                dispatch(acceptChallengeSuccess())
+            }
+        } catch (error) {
+            dispatch(acceptChalleneError(error))
         }
     }
 }
