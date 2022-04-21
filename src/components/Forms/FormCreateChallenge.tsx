@@ -30,7 +30,7 @@ const FormCreateChallenge: FC = () => {
         <FormWrapper method='POST' onSubmit={e => handleCreateChallenge(e)}>
             <Calendar label="Finish datetime: "
                         value={date}
-                        onChange={(newDate: any) => dispatch(setDate(newDate))}
+                        onChange={(newDate) => dispatch(setDate(newDate))}
             />
             <Input 
                 label='Name'

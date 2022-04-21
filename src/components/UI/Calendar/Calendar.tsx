@@ -1,10 +1,21 @@
+import { DateTimePicker, LocalizationProvider } from '@mui/lab'
 import React, { FC } from 'react'
+import { AdapterLuxon } from '@mui/x-date-pickers/AdapterLuxon';
+import { TextField } from '@mui/material';
 
-const Calendar: FC = () => {
+interface CalendarProps {
+    label: string;
+    value: string;
+    onChange: (date: any) => void
+}
+
+const Calendar: FC<CalendarProps> = ({label, value, onChange}) => {
     return (
-        <LocalizationProvider dateAdapter={DateAdapter}>
-            <StyledDateTimePicker onClick={(e) => console.log(e.target)}
-                {...props}
+        <LocalizationProvider dateAdapter={AdapterLuxon}>
+            <DateTimePicker
+                label={label}
+                value={value}
+                onChange={onChange}
                 renderInput={(params) => 
                                     <TextField {...params} /> }
             />
