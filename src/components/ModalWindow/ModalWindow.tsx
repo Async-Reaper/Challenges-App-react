@@ -1,15 +1,24 @@
 import { Modal } from '@mui/material'
 import React, { FC } from 'react'
+import { useTypedDispatch } from '../../hooks/useTypedDispatch'
+import { useTypedSelector } from '../../hooks/useTypedSelector'
+import { setStatusModal } from '../../store/reducers/modalSlice'
 
-const ModalWindow: FC = () => {
+interface ModalWindowProps {
+    children: any
+}
+
+const ModalWindow: FC<ModalWindowProps> = ({children}) => {
+    const {modalStatus} = useTypedSelector(state => state.modal)
+    const dispatch = useTypedDispatch()
     return (
         <Modal
-            open={open}
-            onClose={handleClose}
+            open={modalStatus}
+            onClose={() => dispatch(setStatusModal(false))}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
-            >
-                
+        >
+            {children}
         </Modal>
     )
 }
