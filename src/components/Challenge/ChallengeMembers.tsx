@@ -9,7 +9,7 @@ const ChallengeMembers: FC<ChallengeMembersProps> = ({challengeMembers}) => {
     return (
         <ChallengeWrapper>
             Challenge members: 
-            {challengeMembers.map(member => <li>{member.username}</li>)}
+            {challengeMembers.map(member => <li key={member.user_id} >{member.username}</li>)}
         </ChallengeWrapper>
     )
 }
