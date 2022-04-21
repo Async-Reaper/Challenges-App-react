@@ -2,7 +2,7 @@ import { urlCreateChallenge, urlDomain } from "../constants/URL";
 import { ICreateChallenge } from "../models/ICreateChallenge";
 import { createChalleneError, createChallengeFetch, createChallengeSuccess } from "../store/reducers/challengesSlice";
 import { AppDispatch } from "../store/store";
-
+import { setStatusModal } from '../store/reducers/modalSlice'
 
 export const createChallenge = (data: ICreateChallenge) => {
     return async (dispatch: AppDispatch) => {
@@ -21,6 +21,7 @@ export const createChallenge = (data: ICreateChallenge) => {
 
             if(response.ok) {
                 dispatch(createChallengeSuccess())
+                dispatch(setStatusModal(false))
             } else {
                 const res = await response.json()
                 dispatch(createChalleneError(res))
