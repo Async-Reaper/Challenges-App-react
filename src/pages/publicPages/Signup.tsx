@@ -3,6 +3,7 @@ import FormSignup from '../../components/Forms/FormSignup'
 import Loader from '../../components/UI/Loader/Loader'
 import MainWrapper from '../../components/UI/MainWrapper/MainWrapper'
 import Popup from '../../components/UI/Popup/Popup'
+import PopupError from '../../components/UI/Popup/PopupError'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
 
 const Signup: FC = () => {
@@ -10,6 +11,7 @@ const Signup: FC = () => {
     return (
         <MainWrapper>
             <Popup />
+            <PopupError />
             {loading ? <Loader /> : <FormSignup />}
         </MainWrapper>
     )

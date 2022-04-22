@@ -3,6 +3,7 @@ import SettingsAccordion from '../../components/Settings/SettingsAccordion';
 import Loader from '../../components/UI/Loader/Loader';
 import MainWrapper from '../../components/UI/MainWrapper/MainWrapper';
 import Popup from '../../components/UI/Popup/Popup';
+import PopupError from '../../components/UI/Popup/PopupError'
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 
 const Settings: FC = () => {
@@ -10,6 +11,7 @@ const Settings: FC = () => {
     return (
         <MainWrapper>
             <Popup />
+            <PopupError />
             {loading ? <Loader /> : <SettingsAccordion />}
         </MainWrapper>
     )
