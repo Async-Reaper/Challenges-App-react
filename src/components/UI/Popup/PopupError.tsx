@@ -1,10 +1,16 @@
 import React, { FC } from 'react'
 import { Alert, Collapse, IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
+import { useTypedSelector } from '../../../hooks/useTypedSelector';
+import { useTypedDispatch } from '../../../hooks/useTypedDispatch';
+import { closeErrorPopup } from '../../../store/reducers/errorSlice';
 
 const PopupError: FC = () => {
+    const {errorStatus, errorText} = useTypedSelector(state => state.error)
+    const dispatch = useTypedDispatch()
+
     return (
-        <Collapse in={open}>
+        <Collapse in={errorStatus}>
             <Alert
             severity="error"
             action={
@@ -13,7 +19,7 @@ const PopupError: FC = () => {
                 color="inherit"
                 size="small"
                 onClick={() => {
-                    setOpen(false);
+                    dispatch(closeErrorPopup());
                 }}
                 >
                 <CloseIcon fontSize="inherit" />
@@ -21,7 +27,7 @@ const PopupError: FC = () => {
             }
             sx={{ mb: 2 }}
             >
-            Close me!
+                {errorText}
             </Alert>
         </Collapse>
     )
