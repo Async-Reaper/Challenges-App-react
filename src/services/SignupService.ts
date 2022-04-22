@@ -4,6 +4,7 @@ import { signupFetch, signupFetchError, signupFetchSuccess } from "../store/redu
 import { urlDomain, urlSignup } from "../constants/URL"
 import { ISignupAnswer } from "../models/ISingupAnswer"
 import { openPopup } from "../store/reducers/popupSlice"
+import { openErrorPopup } from '../store/reducers/errorSlice'
 
 
 export const signupUser = (data: IUserSignup) => {
@@ -22,6 +23,9 @@ export const signupUser = (data: IUserSignup) => {
                 const res: ISignupAnswer = await response.json();
                 dispatch(signupFetchSuccess(res.message))
                 dispatch(openPopup(res.message))
+            } else {
+                const res = await response.json()
+                dispatch(openErrorPopup(res.message))
             }
         } catch (error) {
             dispatch(signupFetchError('error'))

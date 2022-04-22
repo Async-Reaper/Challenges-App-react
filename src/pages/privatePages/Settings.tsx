@@ -11,7 +11,6 @@ const Settings: FC = () => {
     return (
         <MainWrapper>
             <Popup />
-            <PopupError />
             {loading ? <Loader /> : <SettingsAccordion />}
         </MainWrapper>
     )

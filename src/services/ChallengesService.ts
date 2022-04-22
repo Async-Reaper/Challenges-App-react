@@ -4,6 +4,7 @@ import { acceptChalleneError, acceptChallengeFetch, acceptChallengeSuccess, crea
 import { AppDispatch } from "../store/store";
 import { setStatusModal } from '../store/reducers/modalSlice'
 import { openPopup } from '../store/reducers/popupSlice'
+import { openErrorPopup } from '../store/reducers/errorSlice'
 
 export const createChallenge = (data: ICreateChallenge) => {
 
@@ -27,7 +28,8 @@ export const createChallenge = (data: ICreateChallenge) => {
                 dispatch(setStatusModal(false))
             } else {
                 const res = await response.json()
-                dispatch(createChalleneError(res))
+                dispatch(createChalleneError(res.message))
+                dispatch(openErrorPopup(res.message))
             }
         } catch (error) {
             dispatch(createChalleneError(error))
@@ -51,6 +53,9 @@ export const acceptChallenge = (id: string) => {
             if(response.ok) {
                 dispatch(acceptChallengeSuccess())
                 dispatch(openPopup('You took part in the challenge.'))
+            } else {
+                const res = await response.json()
+                dispatch(openErrorPopup(res.message))
             }
         } catch (error) {
             dispatch(acceptChalleneError(error))

@@ -3,7 +3,7 @@ import { IUserLogin } from "../models/IUserLogin"
 import { loginFetch, loginFetchError, loginFetchSuccess } from "../store/reducers/loginSlice"
 import { AppDispatch } from "../store/store"
 import { IUserToken } from "../models/IUserToken"
-
+import { openErrorPopup } from '../store/reducers/errorSlice'
 
 export const loginUser = (data: IUserLogin) => {
     return async (dispatch: AppDispatch) => {
@@ -26,6 +26,7 @@ export const loginUser = (data: IUserLogin) => {
                 localStorage.setItem('signature', res.signature)
             } else {
                 const res = await response.json()
+                dispatch(openErrorPopup(res.message))
                 dispatch(loginFetchError(res))
             }
         } catch (error) {
