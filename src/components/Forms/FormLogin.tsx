@@ -3,6 +3,7 @@ import React, { FC } from 'react'
 import { useTypedDispatch } from '../../hooks/useTypedDispatch'
 import { IUserLogin } from '../../models/IUserLogin'
 import { loginUser } from '../../services/LoginService'
+import { errorForm } from '../../store/reducers/errorSlice'
 import FormWrapper from '../UI/FormWrapper/FormWrapper'
 import Input from '../UI/Input/Input'
 
@@ -16,7 +17,12 @@ const FormLogin: FC = () => {
 
     const handleLogin = (e: React.MouseEvent<HTMLFormElement>) => {
         e.preventDefault()
-        dispatch(loginUser(dataLogin))
+
+        if (dataLogin.username !== '' && dataLogin.username !== '') {
+            dispatch(loginUser(dataLogin))
+        } else {
+            dispatch(errorForm('Inputs must be filled!'))
+        }
     }
 
     return (

@@ -3,6 +3,7 @@ import React, { FC } from 'react'
 import { useTypedDispatch } from '../../hooks/useTypedDispatch'
 import { IUserSignup } from '../../models/IUserSignup'
 import { signupUser } from '../../services/SignupService'
+import { errorForm } from '../../store/reducers/errorSlice'
 import FormWrapper from '../UI/FormWrapper/FormWrapper'
 import Input from '../UI/Input/Input'
 
@@ -17,12 +18,16 @@ const FormSignup: FC = () => {
         password2: ''
     }
 
-    const handleSignup = (e: React.MouseEvent<HTMLFormElement>, data: IUserSignup) => {
+    const handleSignup = (e: React.MouseEvent<HTMLFormElement>) => {
         e.preventDefault();
-        dispatch(signupUser(data))
+        if (signupData.email !== '' && signupData.first_name !== '' && signupData.password !== '' && signupData.password2 !== '' && signupData.username !== '' && signupData.surname !== '') {
+            dispatch(signupUser(signupData))
+        } else {
+            dispatch(errorForm('Inputs must be filled!'))
+        }
     }
     return (
-        <FormWrapper method='POST' onSubmit={e => handleSignup(e, signupData)}>
+        <FormWrapper method='POST' onSubmit={e => handleSignup(e)}>
             <Input 
                 label='First name'
                 onChange={e => {

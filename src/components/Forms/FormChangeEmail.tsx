@@ -3,6 +3,7 @@ import React, { FC } from 'react'
 import { useTypedDispatch } from '../../hooks/useTypedDispatch'
 import { IChangeEmail } from '../../models/IChangeEmail'
 import { changeEmail } from '../../services/SettingsService'
+import { errorForm } from '../../store/reducers/errorSlice'
 import FormWrapper from '../UI/FormWrapper/FormWrapper'
 import Input from '../UI/Input/Input'
 
@@ -15,8 +16,8 @@ const FormChangeEmail: FC = () => {
     }
 
     const handleChangeEmail = (e: React.MouseEvent<HTMLFormElement>) => {
-        e.preventDefault()
-        dispatch(changeEmail(newEmail))
+        e.preventDefault() 
+        newEmail.new_user_email !== '' ? dispatch(changeEmail(newEmail)) : dispatch(errorForm('Inputs must be filled!'))
     }
     return (
         <FormWrapper method='PUT' onSubmit={e => handleChangeEmail(e)}>

@@ -5,13 +5,18 @@ import { IChangePassword } from '../../models/IChangePassword'
 import FormWrapper from '../UI/FormWrapper/FormWrapper'
 import Input from '../UI/Input/Input'
 import { changePassword } from '../../services/SettingsService'
+import { errorForm } from '../../store/reducers/errorSlice'
 
 const FormChangePassword: FC = () => {
     const dispatch = useTypedDispatch()
     
-    const handleChangePassword = (e: React.MouseEvent<HTMLFormElement>) => {
+    const handleChangePassword = (e: React.MouseEvent<HTMLFormElement>): void => {
         e.preventDefault()
-        dispatch(changePassword(newPassword))
+        if (newPassword.old_password !== '' && newPassword.new_password !== '' && newPassword.new_password2 !== '') {
+            dispatch(changePassword(newPassword)) 
+        } else {
+            dispatch(errorForm('Inputs must be filled!'))
+        }
     }
 
     const newPassword: IChangePassword = {

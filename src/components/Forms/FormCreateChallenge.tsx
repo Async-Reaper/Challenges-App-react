@@ -5,6 +5,7 @@ import { useTypedSelector } from '../../hooks/useTypedSelector'
 import { ICreateChallenge } from '../../models/ICreateChallenge'
 import { createChallenge } from '../../services/ChallengesService'
 import { setDate } from '../../store/reducers/dateSlice'
+import { errorForm } from '../../store/reducers/errorSlice'
 import Calendar from '../UI/Calendar/Calendar'
 import FormWrapper from '../UI/FormWrapper/FormWrapper'
 import Input from '../UI/Input/Input'
@@ -23,7 +24,12 @@ const FormCreateChallenge: FC = () => {
 
     const handleCreateChallenge = (e: React.MouseEvent<HTMLFormElement>) => {
         e.preventDefault()
-        dispatch(createChallenge(newChallenge))
+        if (newChallenge.name !== '' && newChallenge.goal !== '' && newChallenge.description !== '' && newChallenge) {
+            dispatch(createChallenge(newChallenge))
+        } else {
+            dispatch(errorForm('Inputs must be filled!'))
+        }
+        
     }
 
     return (
