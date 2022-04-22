@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 import { useParams } from 'react-router-dom'
 import ChallengeById from '../../components/Challenge/ChallengeById'
 import ChallengeMembers from '../../components/Challenge/ChallengeMembers'
+import Loader from '../../components/UI/Loader/Loader'
 import MainWrapper from '../../components/UI/MainWrapper/MainWrapper'
 import { postApi } from '../../services/PostService'
 
@@ -12,7 +13,7 @@ const Challenge: FC = () => {
     
     return (
         <MainWrapper>
-            {isLoading && <h1>loading</h1>}
+            {isLoading && <Loader />}
             {challenge && <ChallengeById challenge={challenge} />}
             {challengeMembers && <ChallengeMembers challengeMembers={challengeMembers} />}
         </MainWrapper>

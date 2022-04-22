@@ -1,16 +1,14 @@
 import React, { FC } from 'react';
-import FormChangeEmail from '../../components/Forms/FormChangeEmail';
-import FormChangePassword from '../../components/Forms/FormChangePassword';
-import FormDeleteAccount from '../../components/Forms/FormDeleteAccount';
-import AccordionSettings from '../../components/UI/Accordion/AccordionSettings';
+import SettingsAccordion from '../../components/Settings/SettingsAccordion';
+import Loader from '../../components/UI/Loader/Loader';
 import MainWrapper from '../../components/UI/MainWrapper/MainWrapper';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 
 const Settings: FC = () => {
+    const {loading} = useTypedSelector(state => state.settings)
     return (
         <MainWrapper>
-            <AccordionSettings name='Change password' params={<FormChangePassword />}/>
-            <AccordionSettings name='Change email' params={<FormChangeEmail />}/>
-            <AccordionSettings name='Delete account' params={<FormDeleteAccount />}/>
+            {loading ? <Loader /> : <SettingsAccordion />}
         </MainWrapper>
     )
 }

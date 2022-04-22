@@ -1,11 +1,14 @@
 import React, { FC } from 'react'
 import FormSignup from '../../components/Forms/FormSignup'
+import Loader from '../../components/UI/Loader/Loader'
 import MainWrapper from '../../components/UI/MainWrapper/MainWrapper'
+import { useTypedSelector } from '../../hooks/useTypedSelector'
 
 const Signup: FC = () => {
+    const {loading} = useTypedSelector(state => state.settings)
     return (
         <MainWrapper>
-            <FormSignup />
+            {loading ? <Loader /> : <FormSignup />}
         </MainWrapper>
     )
 }
