@@ -19,8 +19,6 @@ const ChallengeById: FC<ChallengeByIdProps> = ({challenge}) => {
                 <li>Goal: {challenge.goal}</li>
                 <li>Description: {challenge.description}</li>
                 <li>Requirements: {challenge.requirements}</li>
-                <li>Bet: {challenge.bet}</li>
-                <li>Bets sum: {challenge.bets_sum}</li>
                 <li>Members amount: {challenge.members_amount}</li>
                 <li>Finish datetime: {challenge.finish_datetime}</li>
             </ChallengeWrapper>
