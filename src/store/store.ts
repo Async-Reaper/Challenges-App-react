@@ -4,6 +4,7 @@ import challengesSlice from "./reducers/challengesSlice";
 import dateSlice from "./reducers/dateSlice";
 import loginSlice from "./reducers/loginSlice";
 import modalSlice from "./reducers/modalSlice";
+import popupSlice from "./reducers/popupSlice";
 import settingsSlice from "./reducers/settingsSlice";
 import signupSlice from "./reducers/signupSlice";
 
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
     modal: modalSlice,
     challenges: challengesSlice,
     date: dateSlice,
+    popup: popupSlice,
     [postApi.reducerPath]: postApi.reducer
 })
 
