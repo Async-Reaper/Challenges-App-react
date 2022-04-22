@@ -20,9 +20,12 @@ const errorSlice = createSlice({
         },
         closeErrorPopup(state) {
             state.errorStatus = false
+        },
+        errorForm(state, action) {
+            state.errorText = action.payload
         }
     }
 })
 
 export default errorSlice.reducer
-export const { closeErrorPopup, openErrorPopup } = errorSlice.actions
+export const { closeErrorPopup, openErrorPopup, errorForm } = errorSlice.actions
