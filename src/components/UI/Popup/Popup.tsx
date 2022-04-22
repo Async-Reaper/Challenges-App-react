@@ -1,10 +1,15 @@
 import { Alert, Collapse, IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import React, { FC } from 'react'
+import { useTypedSelector } from '../../../hooks/useTypedSelector';
+import { useTypedDispatch } from '../../../hooks/useTypedDispatch';
+import { setStatusModal } from '../../../store/reducers/modalSlice';
 
 const Popup: FC = () => {
+    const {popupStatus} = useTypedSelector(state => state.popup)
+    const dispatch = useTypedDispatch()
     return (
-        <Collapse in={open}>
+        <Collapse in={popupStatus}>
             <Alert
                 action={
                     <IconButton
@@ -12,7 +17,7 @@ const Popup: FC = () => {
                         color="inherit"
                         size="small"
                         onClick={() => {
-                            setOpen(false);
+                            dispatch(setStatusModal(false));
                         }}
                     >
                     <CloseIcon fontSize="inherit" />
