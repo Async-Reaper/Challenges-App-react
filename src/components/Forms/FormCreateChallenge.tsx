@@ -14,7 +14,7 @@ const FormCreateChallenge: FC = () => {
     const {date} = useTypedSelector(state => state.date)
     const newChallenge: ICreateChallenge = {
         name: '',
-        finish_datetime: '',
+        finish_datetime: date,
         goal: '',
         description: '',
         requirements: '',

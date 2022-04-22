@@ -12,8 +12,8 @@ const Challenges: FC = () => {
     const {loginStatus} = useTypedSelector(state => state.login)
     return (
         <MainWrapper>
-            {loginStatus && <CreateChallenge />}
             <Popup />
+            {loginStatus && <CreateChallenge />}
             {isLoading && <Loader />}
             {challenges && challenges.map(challenge => 
                 <ChallengesItem key={challenge.challenge_id} challenge={challenge}/>

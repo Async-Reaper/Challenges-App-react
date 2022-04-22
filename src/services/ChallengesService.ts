@@ -3,9 +3,10 @@ import { ICreateChallenge } from "../models/ICreateChallenge";
 import { acceptChalleneError, acceptChallengeFetch, acceptChallengeSuccess, createChalleneError, createChallengeFetch, createChallengeSuccess } from "../store/reducers/challengesSlice";
 import { AppDispatch } from "../store/store";
 import { setStatusModal } from '../store/reducers/modalSlice'
-import { openPopup } from "../store/reducers/popupSlice";
+import { openPopup } from '../store/reducers/popupSlice'
 
 export const createChallenge = (data: ICreateChallenge) => {
+
     return async (dispatch: AppDispatch) => {
         try {
             dispatch(createChallengeFetch());
