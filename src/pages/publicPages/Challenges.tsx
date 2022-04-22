@@ -9,11 +9,11 @@ import { postApi } from '../../services/PostService'
 
 const Challenges: FC = () => {
     const {data: challenges, isLoading} = postApi.useGetAllChallengesQuery('')
-    const {answer} = useTypedSelector(state => state.challenges)
+    const {loginStatus} = useTypedSelector(state => state.login)
     return (
         <MainWrapper>
-            <CreateChallenge />
-            <Popup>{answer}</Popup>
+            {loginStatus && <CreateChallenge />}
+            <Popup />
             {isLoading && <Loader />}
             {challenges && challenges.map(challenge => 
                 <ChallengesItem key={challenge.challenge_id} challenge={challenge}/>

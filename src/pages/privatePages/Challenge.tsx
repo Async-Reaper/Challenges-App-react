@@ -5,17 +5,16 @@ import ChallengeMembers from '../../components/Challenge/ChallengeMembers'
 import Loader from '../../components/UI/Loader/Loader'
 import MainWrapper from '../../components/UI/MainWrapper/MainWrapper'
 import Popup from '../../components/UI/Popup/Popup'
-import { useTypedSelector } from '../../hooks/useTypedSelector'
 import { postApi } from '../../services/PostService'
 
 const Challenge: FC = () => {
     const params = useParams()
     const {data: challenge, isLoading} = postApi.useGetChallengeByIdQuery(params.id!)
     const {data: challengeMembers} = postApi.useGetChallengeMembersQuery(params.id!)
-    const {answer} = useTypedSelector(state => state.challenges)
+
     return (
         <MainWrapper>
-            <Popup>{answer}</Popup>
+            <Popup />
             {isLoading && <Loader />}
             {challenge && <ChallengeById challenge={challenge} />}
             {challengeMembers && <ChallengeMembers challengeMembers={challengeMembers} />}
