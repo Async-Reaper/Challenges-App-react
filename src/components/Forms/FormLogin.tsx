@@ -4,6 +4,7 @@ import { useTypedDispatch } from '../../hooks/useTypedDispatch'
 import { IUserLogin } from '../../models/IUserLogin'
 import { loginUser } from '../../services/LoginService'
 import { errorForm } from '../../store/reducers/errorSlice'
+import ErrorText from '../UI/Error/ErrorText'
 import FormWrapper from '../UI/FormWrapper/FormWrapper'
 import Input from '../UI/Input/Input'
 
@@ -37,6 +38,7 @@ const FormLogin: FC = () => {
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => dataLogin.password = e.target.value}
             />
             <Button type='submit' variant="contained">Login</Button>
+            <ErrorText />
         </FormWrapper>
     )
 }

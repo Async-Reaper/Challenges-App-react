@@ -6,6 +6,7 @@ import FormWrapper from '../UI/FormWrapper/FormWrapper'
 import Input from '../UI/Input/Input'
 import { changePassword } from '../../services/SettingsService'
 import { errorForm } from '../../store/reducers/errorSlice'
+import ErrorText from '../UI/Error/ErrorText'
 
 const FormChangePassword: FC = () => {
     const dispatch = useTypedDispatch()
@@ -30,6 +31,7 @@ const FormChangePassword: FC = () => {
             <Input label='New password' type='password' onChange={e => newPassword.new_password = e.target.value}/>
             <Input label='New password' type='password' onChange={e => newPassword.new_password2 = e.target.value}/>
             <Button type='submit' variant="contained">Change password</Button>
+            <ErrorText />
         </FormWrapper>
     )
 }

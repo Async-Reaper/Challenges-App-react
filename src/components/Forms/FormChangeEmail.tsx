@@ -4,6 +4,7 @@ import { useTypedDispatch } from '../../hooks/useTypedDispatch'
 import { IChangeEmail } from '../../models/IChangeEmail'
 import { changeEmail } from '../../services/SettingsService'
 import { errorForm } from '../../store/reducers/errorSlice'
+import ErrorText from '../UI/Error/ErrorText'
 import FormWrapper from '../UI/FormWrapper/FormWrapper'
 import Input from '../UI/Input/Input'
 
@@ -23,6 +24,7 @@ const FormChangeEmail: FC = () => {
         <FormWrapper method='PUT' onSubmit={e => handleChangeEmail(e)}>
             <Input label='New email' onChange={e => newEmail.new_user_email = e.target.value}/>
             <Button type='submit' variant="contained">Change email</Button>
+            <ErrorText />
         </FormWrapper>
     )
 }

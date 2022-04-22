@@ -4,6 +4,7 @@ import { useTypedDispatch } from '../../hooks/useTypedDispatch'
 import { IUserSignup } from '../../models/IUserSignup'
 import { signupUser } from '../../services/SignupService'
 import { errorForm } from '../../store/reducers/errorSlice'
+import ErrorText from '../UI/Error/ErrorText'
 import FormWrapper from '../UI/FormWrapper/FormWrapper'
 import Input from '../UI/Input/Input'
 
@@ -68,6 +69,7 @@ const FormSignup: FC = () => {
                 }}
             />
             <Button type='submit' variant="contained">Signup</Button>
+            <ErrorText />
         </FormWrapper>
     )
 }
