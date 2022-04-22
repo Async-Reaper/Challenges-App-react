@@ -5,7 +5,11 @@ import { useTypedSelector } from '../../../hooks/useTypedSelector';
 import { useTypedDispatch } from '../../../hooks/useTypedDispatch';
 import { setStatusModal } from '../../../store/reducers/modalSlice';
 
-const Popup: FC = () => {
+interface IPopupProps {
+    children: any
+}
+
+const Popup: FC<IPopupProps> = ({children}) => {
     const {popupStatus} = useTypedSelector(state => state.popup)
     const dispatch = useTypedDispatch()
     return (
@@ -25,7 +29,7 @@ const Popup: FC = () => {
                 }
                 sx={{ mb: 2 }}
             >
-                Close me!
+                {children}
             </Alert>
         </Collapse>
     )
