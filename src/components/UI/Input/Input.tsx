@@ -3,12 +3,13 @@ import React, { FC } from 'react'
 
 interface InputProps {
     label: string
+    type? : string
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-const Input: FC<InputProps> = ({label, onChange}) => {
+const Input: FC<InputProps> = ({label, onChange, type}) => {
     return (
-        <TextField label={label} variant="filled" margin='normal' onChange={onChange}/>
+        <TextField label={label} type={type} variant="filled" margin='normal' onChange={onChange}/>
     )
 }
 

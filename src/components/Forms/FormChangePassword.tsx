@@ -21,9 +21,9 @@ const FormChangePassword: FC = () => {
     }
     return (
         <FormWrapper method='PUT' onSubmit={e => handleChangePassword(e)}>
-            <Input label='Old password' onChange={e => newPassword.old_password = e.target.value}/>
-            <Input label='New password' onChange={e => newPassword.new_password = e.target.value}/>
-            <Input label='New password' onChange={e => newPassword.new_password2 = e.target.value}/>
+            <Input label='Old password' type='password' onChange={e => newPassword.old_password = e.target.value}/>
+            <Input label='New password' type='password' onChange={e => newPassword.new_password = e.target.value}/>
+            <Input label='New password' type='password' onChange={e => newPassword.new_password2 = e.target.value}/>
             <Button type='submit' variant="contained">Change password</Button>
         </FormWrapper>
     )

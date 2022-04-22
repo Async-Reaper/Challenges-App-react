@@ -27,6 +27,7 @@ const FormLogin: FC = () => {
             />
             <Input 
                 label='Password'
+                type='password'
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => dataLogin.password = e.target.value}
             />
             <Button type='submit' variant="contained">Login</Button>

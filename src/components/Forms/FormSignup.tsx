@@ -43,18 +43,21 @@ const FormSignup: FC = () => {
             />
             <Input 
                 label='Email'
+                type='email'
                 onChange={e => {
                     signupData.email = e.target.value
                 }}
             />
             <Input 
                 label='Password'
+                type='password'
                 onChange={e => {
                     signupData.password = e.target.value
                 }}
             />
             <Input 
                 label='Repeat password'
+                type='password'
                 onChange={e => {
                     signupData.password2 = e.target.value
                 }}
