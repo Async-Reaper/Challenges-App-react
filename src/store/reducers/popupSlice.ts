@@ -2,21 +2,27 @@ import { createSlice } from "@reduxjs/toolkit";
 
 interface IPopupSlice {
     popupStatus: boolean;
+    popupText: string
 }
 
 const initialState: IPopupSlice = {
-    popupStatus: false
+    popupStatus: false,
+    popupText: ''
 }
 
 const popupSlice = createSlice({
     name: 'popup',
     initialState,
     reducers: {
-        setStatusPopup(state, action) {
-            state.popupStatus = action.payload
+        closePopup(state) {
+            state.popupStatus = false
+        },
+        openPopup(state, action) {
+            state.popupStatus = true
+            state.popupText = action.payload
         }
     }
 })
 
 export default popupSlice.reducer
-export const {setStatusPopup} = popupSlice.actions
+export const {closePopup, openPopup} = popupSlice.actions

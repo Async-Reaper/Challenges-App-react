@@ -3,7 +3,7 @@ import { ICreateChallenge } from "../models/ICreateChallenge";
 import { acceptChalleneError, acceptChallengeFetch, acceptChallengeSuccess, createChalleneError, createChallengeFetch, createChallengeSuccess } from "../store/reducers/challengesSlice";
 import { AppDispatch } from "../store/store";
 import { setStatusModal } from '../store/reducers/modalSlice'
-import { setStatusPopup } from '../store/reducers/popupSlice'
+import { openPopup } from "../store/reducers/popupSlice";
 
 export const createChallenge = (data: ICreateChallenge) => {
     return async (dispatch: AppDispatch) => {
@@ -22,7 +22,7 @@ export const createChallenge = (data: ICreateChallenge) => {
 
             if(response.ok) {
                 dispatch(createChallengeSuccess())
-                dispatch(setStatusPopup(true))
+                dispatch(openPopup('Challenge created.'))
                 dispatch(setStatusModal(false))
             } else {
                 const res = await response.json()
@@ -49,7 +49,7 @@ export const acceptChallenge = (id: string) => {
 
             if(response.ok) {
                 dispatch(acceptChallengeSuccess())
-                dispatch(setStatusPopup(true))
+                dispatch(openPopup('You took part in the challenge.'))
             }
         } catch (error) {
             dispatch(acceptChalleneError(error))

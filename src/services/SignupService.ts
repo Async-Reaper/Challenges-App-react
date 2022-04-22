@@ -3,7 +3,7 @@ import { IUserSignup } from "../models/IUserSignup"
 import { signupFetch, signupFetchError, signupFetchSuccess } from "../store/reducers/signupSlice"
 import { urlDomain, urlSignup } from "../constants/URL"
 import { ISignupAnswer } from "../models/ISingupAnswer"
-import { setStatusPopup } from "../store/reducers/popupSlice"
+import { openPopup } from "../store/reducers/popupSlice"
 
 
 export const signupUser = (data: IUserSignup) => {
@@ -21,7 +21,7 @@ export const signupUser = (data: IUserSignup) => {
             if (response.ok) {
                 const res: ISignupAnswer = await response.json();
                 dispatch(signupFetchSuccess(res.message))
-                dispatch(setStatusPopup(true))
+                dispatch(openPopup(res.message))
             }
         } catch (error) {
             dispatch(signupFetchError('error'))

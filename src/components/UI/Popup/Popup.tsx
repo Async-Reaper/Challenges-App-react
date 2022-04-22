@@ -3,14 +3,10 @@ import CloseIcon from '@mui/icons-material/Close';
 import React, { FC } from 'react'
 import { useTypedSelector } from '../../../hooks/useTypedSelector';
 import { useTypedDispatch } from '../../../hooks/useTypedDispatch';
-import { setStatusModal } from '../../../store/reducers/modalSlice';
+import { closePopup } from '../../../store/reducers/popupSlice';
 
-interface IPopupProps {
-    children: any
-}
-
-const Popup: FC<IPopupProps> = ({children}) => {
-    const {popupStatus} = useTypedSelector(state => state.popup)
+const Popup: FC = () => {
+    const {popupStatus, popupText} = useTypedSelector(state => state.popup)
     const dispatch = useTypedDispatch()
     return (
         <Collapse in={popupStatus}>
@@ -21,7 +17,7 @@ const Popup: FC<IPopupProps> = ({children}) => {
                         color="inherit"
                         size="small"
                         onClick={() => {
-                            dispatch(setStatusModal(false));
+                            dispatch(closePopup());
                         }}
                     >
                     <CloseIcon fontSize="inherit" />
@@ -29,7 +25,7 @@ const Popup: FC<IPopupProps> = ({children}) => {
                 }
                 sx={{ mb: 2 }}
             >
-                {children}
+                {popupText}
             </Alert>
         </Collapse>
     )

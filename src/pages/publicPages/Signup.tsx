@@ -9,7 +9,7 @@ const Signup: FC = () => {
     const {loading, message} = useTypedSelector(state => state.signup)
     return (
         <MainWrapper>
-            <Popup>{message}</Popup>
+            <Popup />
             {loading ? <Loader /> : <FormSignup />}
         </MainWrapper>
     )

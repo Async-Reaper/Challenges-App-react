@@ -9,7 +9,7 @@ const Settings: FC = () => {
     const {loading, answer} = useTypedSelector(state => state.settings)
     return (
         <MainWrapper>
-            <Popup>{answer}</Popup>
+            <Popup />
             {loading ? <Loader /> : <SettingsAccordion />}
         </MainWrapper>
     )

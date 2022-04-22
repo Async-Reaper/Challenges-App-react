@@ -2,7 +2,7 @@ import { urlChangeEmail, urlChangePassword, urlDeleteAccount, urlDomain } from "
 import { IChangeEmail } from "../models/IChangeEmail"
 import { IChangePassword } from "../models/IChangePassword"
 import { logoutFetchSuccess } from "../store/reducers/loginSlice"
-import { setStatusPopup } from "../store/reducers/popupSlice"
+import { openPopup } from "../store/reducers/popupSlice"
 import { changeEmailError, changeEmailFetch, changeEmailSuccess, changePasswordError, changePasswordFetch, changePasswordSuccess, deleteAccountFetch, deleteAccountlError, deleteAccountSuccess } from "../store/reducers/settingsSlice"
 import { AppDispatch } from "../store/store"
 
@@ -23,7 +23,7 @@ export const changePassword = (data: IChangePassword) => {
             if (response.ok) {
                 dispatch(changePasswordSuccess())
                 dispatch(logoutFetchSuccess())
-                dispatch(setStatusPopup(true))
+                dispatch(openPopup('Password changed.'))
             } else {
                 dispatch(changePasswordError('An error ocurred, please try again.'))
             }
@@ -52,7 +52,7 @@ export const changeEmail = (data: IChangeEmail) => {
             if (response.ok) {
                 dispatch(changeEmailSuccess())
                 dispatch(logoutFetchSuccess())
-                dispatch(setStatusPopup(true))
+                dispatch(openPopup('Email changed.'))
             } else {
                 dispatch(changeEmailError('An error ocurred, please try again.'))
             }
@@ -80,7 +80,7 @@ export const deleteAccount = () => {
             if (response.ok) {
                 dispatch(deleteAccountSuccess())
                 dispatch(logoutFetchSuccess())
-                dispatch(setStatusPopup(true))
+                dispatch(openPopup('Account deleted.'))
             } else {
                 dispatch(deleteAccountlError('An error ocurred, please try again.'))
             }
