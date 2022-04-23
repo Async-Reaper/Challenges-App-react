@@ -6,9 +6,9 @@ interface ChallengeWrapperProps {
 }
 
 const ChallengesWrapper = styled('ul')({
-    boxShadow: '0 0 5px #0c53a6',
-    background: '#0C53A6',
-    color: '#141414',
+    boxShadow: '0 0 10px #362666',
+    background: '#362666',
+    color: '#e7dfff',
     borderRadius: 10,
     padding: 20,
     marginBottom: 25,

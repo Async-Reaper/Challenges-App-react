@@ -8,6 +8,10 @@ const SignoutButton = styled(Button)({
     color: '#ffcccc',
     display: 'flex',
     justifyContent: 'space-between',
+
+    '&:hover': {
+        background: '#660000'
+    }
 })
 
 interface ISignoutProps {
