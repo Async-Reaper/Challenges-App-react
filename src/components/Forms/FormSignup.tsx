@@ -7,6 +7,7 @@ import { errorForm } from '../../store/reducers/errorSlice'
 import ErrorText from '../UI/Error/ErrorText'
 import FormWrapper from '../UI/FormWrapper/FormWrapper'
 import Input from '../UI/Input/Input'
+import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentIndOutlined';
 
 const FormSignup: FC = () => {
     const dispatch = useTypedDispatch()
@@ -68,7 +69,10 @@ const FormSignup: FC = () => {
                     signupData.password2 = e.target.value
                 }}
             />
-            <Button type='submit' variant="contained">Signup</Button>
+            <Button type='submit' variant="contained">
+                <AssignmentIndOutlinedIcon />
+                Signup
+            </Button>
             <ErrorText />
         </FormWrapper>
     )

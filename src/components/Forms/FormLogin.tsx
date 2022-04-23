@@ -7,6 +7,7 @@ import { errorForm } from '../../store/reducers/errorSlice'
 import ErrorText from '../UI/Error/ErrorText'
 import FormWrapper from '../UI/FormWrapper/FormWrapper'
 import Input from '../UI/Input/Input'
+import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
 
 const FormLogin: FC = () => {
     const dispatch = useTypedDispatch()
@@ -37,7 +38,10 @@ const FormLogin: FC = () => {
                 type='password'
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => dataLogin.password = e.target.value}
             />
-            <Button type='submit' variant="contained">Login</Button>
+            <Button type='submit' variant="contained">
+                <LoginOutlinedIcon />
+                Login
+            </Button>
             <ErrorText />
         </FormWrapper>
     )
