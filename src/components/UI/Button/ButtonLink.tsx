@@ -9,6 +9,8 @@ interface IButtonLinkProps {
 const LinkWrapper = styled(Button)({
     color: '#12043f',
     background: '#885fff',
+    display: 'flex',
+    justifyContent: 'space-between',
 })
 
 const ButtonLink: FC<IButtonLinkProps> = ({children}) => {

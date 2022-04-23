@@ -5,7 +5,7 @@ import SidebarPrivate from './SidebarPrivate'
 import SidebarPublic from './SidebarPublic'
 
 const Aside = styled('aside')({
-    width: '170px',
+    width: '190px',
     height: '100vh',
     color: '#12043f',
     padding: '20px',

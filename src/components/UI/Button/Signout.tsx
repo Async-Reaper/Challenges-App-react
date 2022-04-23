@@ -6,6 +6,8 @@ import ExitToAppOutlinedIcon from '@mui/icons-material/ExitToAppOutlined';
 const SignoutButton = styled(Button)({
     background: '#7f0000',
     color: '#ffcccc',
+    display: 'flex',
+    justifyContent: 'space-between',
 })
 
 interface ISignoutProps {
