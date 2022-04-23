@@ -1,5 +1,6 @@
 import { TextField } from '@mui/material'
 import React, { FC } from 'react'
+import styled from '@emotion/styled'
 
 interface InputProps {
     label: string
@@ -7,9 +8,15 @@ interface InputProps {
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
+const InputWrapper = styled(TextField)({
+    '& .MuiFilledInput-root': {
+        background: 'rgba( 140 ,186 ,232, .115)'
+    }
+})
+
 const Input: FC<InputProps> = ({label, onChange, type}) => {
     return (
-        <TextField label={label} type={type} variant="filled" margin='normal' onChange={onChange}/>
+        <InputWrapper label={label} type={type} variant="filled" margin='normal' onChange={onChange}/>
     )
 }
 

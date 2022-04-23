@@ -8,7 +8,8 @@ interface FormProps {
 }
 
 const Form = styled('form')({
-    background: '#0C53A6',
+    boxShadow: '0 0 10px #1c1c1c',
+    background: '#442f7f',
     display: 'flex',
     flexDirection: 'column',
     padding: 20,
