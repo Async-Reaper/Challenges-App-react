@@ -13,15 +13,25 @@ h6 {
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+  padding: 5px;
+  text-decoration: none;
+  color: #12043f;
+  border-radius: 10px;
+  background: #885fff;
+  box-shadow: 0 0 10px #5125fc
+}
+
 li {
   list-style: none;
   padding-left: 0;
 }
 
 body {
-  background: #141414;
   color: #0C53A6;
   font-size: 17px;
   line-height: 24px;
-  font-weight: 400;
+  font-weight: 500;
+  background: #885fff;
 }
