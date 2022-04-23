@@ -9,8 +9,12 @@ interface AccordionSettingsProps {
 }
 
 const AccordionWrapper = styled(Accordion)({
-    background: '#0C53A6',
+    background: '#12043f',
+    color: '#885fff',
     maxWidth: 400,
+    '& .MuiSvgIcon-root' : {
+        color: '#885fff'
+    }
 })
 
 const AccordionSettings: FC<AccordionSettingsProps> = ({name, params}) => {
