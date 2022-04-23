@@ -4,6 +4,7 @@ import React, { FC } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useTypedDispatch } from '../../../hooks/useTypedDispatch'
 import { signoutUser } from '../../../services/SignoutService'
+import ButtonLink from '../Button/ButtonLink'
 import Signout from '../Button/Signout'
 
 const AsidePrivate = styled('div')({
@@ -24,8 +25,12 @@ const SidebarPrivate: FC = () => {
 
     return (
         <AsidePrivate>
-            <Link to={'/settings'}>Settings</Link>
-            <Link to={'/challenges'}>Challenges</Link>
+            <ButtonLink>
+                <Link to={'/settings'}>Settings</Link>
+            </ButtonLink>
+            <ButtonLink>
+                <Link to={'/challenges'}>Challenges</Link>
+            </ButtonLink>
             <Signout onClick={() => handleSignout()}/>
         </AsidePrivate>
     )
