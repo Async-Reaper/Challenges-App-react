@@ -6,6 +6,8 @@ import { useTypedDispatch } from '../../../hooks/useTypedDispatch'
 import { signoutUser } from '../../../services/SignoutService'
 import ButtonLink from '../Button/ButtonLink'
 import Signout from '../Button/Signout'
+import SettingsIcon from '@mui/icons-material/Settings';
+import ModeStandbyIcon from '@mui/icons-material/ModeStandby';
 
 const AsidePrivate = styled('div')({
     display: 'grid',
@@ -26,9 +28,11 @@ const SidebarPrivate: FC = () => {
     return (
         <AsidePrivate>
             <ButtonLink>
+                <SettingsIcon />
                 <Link to={'/settings'}>Settings</Link>
             </ButtonLink>
             <ButtonLink>
+                <ModeStandbyIcon />
                 <Link to={'/challenges'}>Challenges</Link>
             </ButtonLink>
             <Signout onClick={() => handleSignout()}/>
