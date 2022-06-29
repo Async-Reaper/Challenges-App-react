@@ -35,8 +35,6 @@ const FormSignup: FC = () => {
         e.preventDefault();
         if (signupData.email !== '' && signupData.first_name !== '' && signupData.password !== '' && signupData.password2 !== '' && signupData.username !== '' && signupData.surname !== '') {
             dispatch(signupUser(signupData))
-        } else {
-            dispatch(errorForm('Inputs must be filled!'))
         }
     }
     return (
