@@ -13,20 +13,20 @@ import { useTypedSelector } from '../../hooks/useTypedSelector'
 
 const FormLogin: FC = () => {
     const dispatch = useTypedDispatch()
-    const email = useInput('', {isEmpty: true})
+    const username = useInput('', {isEmpty: true})
     const password = useInput('', {isEmpty: true})
     const { answer, error } = useTypedSelector(state => state.login)
     const dataLogin: IUserLogin = {
-        username: email.value,
+        username: username.value,
         password: password.value
     }
 
     const handleLogin = (e: React.MouseEvent<HTMLFormElement>) => {
         e.preventDefault()
-        email.onBlur()
+        username.onBlur()
         password.onBlur()
 
-        if (!email.isEmpty && !password.isEmpty) {
+        if (!username.isEmpty && !password.isEmpty) {
             dispatch(loginUser(dataLogin))
         }
     }
@@ -35,10 +35,10 @@ const FormLogin: FC = () => {
         <FormWrapper method='POST' onSubmit={e => handleLogin(e)}>
             <Input 
                 label='Login'
-                value={email.value}
-                onChange={email.onChange}
+                value={username.value}
+                onChange={username.onChange}
             />
-                { (email.isDirty && email.isEmpty) && <ErrorText>The field is empty</ErrorText>}
+                { (username.isDirty && username.isEmpty) && <ErrorText>The field is empty</ErrorText>}
             <Input 
                 label='Password'
                 type='password'

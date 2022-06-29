@@ -8,16 +8,27 @@ import ErrorText from '../UI/Error/ErrorText'
 import FormWrapper from '../UI/FormWrapper/FormWrapper'
 import Input from '../UI/Input/Input'
 import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentIndOutlined';
+import { useInput } from '../../hooks/useInput'
+import { useTypedSelector } from '../../hooks/useTypedSelector'
 
 const FormSignup: FC = () => {
     const dispatch = useTypedDispatch()
+    const { error, message } = useTypedSelector(state => state.signup)
+
+    const firstName = useInput('', {isEmpty: true})
+    const surname = useInput('', {isEmpty: true})
+    const userName = useInput('', {isEmpty: true})
+    const email = useInput('', {isEmpty: true})
+    const password = useInput('', {isEmpty: true})
+    const repeatPassword = useInput('', {isEmpty: true})
+
     const signupData: IUserSignup = {
-        first_name: '',
-        surname: '',
-        username: '',
-        email: '',
-        password: '',
-        password2: ''
+        first_name: firstName.value,
+        surname: surname.value,
+        username: userName.value,
+        email: email.value,
+        password: password.value,
+        password2: repeatPassword.value
     }
 
     const handleSignup = (e: React.MouseEvent<HTMLFormElement>) => {
@@ -32,48 +43,48 @@ const FormSignup: FC = () => {
         <FormWrapper method='POST' onSubmit={e => handleSignup(e)}>
             <Input 
                 label='First name'
-                onChange={e => {
-                    signupData.first_name = e.target.value
-                }}
+                value={firstName.value}
+                onChange={firstName.onChange}
             />
+            { (firstName.isDirty && firstName.isEmpty) && <ErrorText>The field is empty</ErrorText>}
             <Input 
                 label='Surname'
-                onChange={e => {
-                    signupData.surname = e.target.value
-                }}
+                value={surname.value}
+                onChange={surname.onChange}
             />
+            { (surname.isDirty && surname.isEmpty) && <ErrorText>The field is empty</ErrorText>}
             <Input 
                 label='Username'
-                onChange={e => {
-                    signupData.username = e.target.value
-                }}
+                value={userName.value}
+                onChange={userName.onChange}
             />
+            { (userName.isDirty && userName.isEmpty) && <ErrorText>The field is empty</ErrorText>}
             <Input 
                 label='Email'
                 type='email'
-                onChange={e => {
-                    signupData.email = e.target.value
-                }}
+                value={email.value}
+                onChange={email.onChange}
             />
+            { (email.isDirty && email.isEmpty) && <ErrorText>The field is empty</ErrorText>}
             <Input 
                 label='Password'
                 type='password'
-                onChange={e => {
-                    signupData.password = e.target.value
-                }}
+                value={password.value}
+                onChange={password.onChange}
             />
+            { (password.isDirty && password.isEmpty) && <ErrorText>The field is empty</ErrorText>}
             <Input 
                 label='Repeat password'
                 type='password'
-                onChange={e => {
-                    signupData.password2 = e.target.value
-                }}
+                value={repeatPassword.value}
+                onChange={repeatPassword.onChange}
             />
+            { (repeatPassword.isDirty && repeatPassword.isEmpty) && <ErrorText>The field is empty</ErrorText>}
             <Button type='submit' variant="contained">
                 <AssignmentIndOutlinedIcon />
                 Signup
             </Button>
-            <ErrorText />
+            { error && <ErrorText>{message}</ErrorText>}
         </FormWrapper>
     )
 }
