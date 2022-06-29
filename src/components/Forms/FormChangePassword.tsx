@@ -57,7 +57,6 @@ const FormChangePassword: FC = () => {
             
             <Button type='submit' variant="contained">Change password</Button>
             
-            { error && <ErrorText>{answer}</ErrorText>}
         </FormWrapper>
     )
 }
