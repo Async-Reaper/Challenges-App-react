@@ -3,14 +3,18 @@ import React, { FC } from 'react'
 import { useTypedSelector } from '../../../hooks/useTypedSelector'
 
 const Error = styled('span')({
-    color: '#e50000'
+    color: '#e50000',
+    fontWeight: 300
 })
 
-const ErrorText: FC = () => {
-    const {errorText} = useTypedSelector(state => state.error)
+interface IError {
+    children: string
+}
+
+const ErrorText: FC<IError> = ({children}) => {
     return (
         <Error>
-            {errorText}
+            *{children}
         </Error>
     )
 }

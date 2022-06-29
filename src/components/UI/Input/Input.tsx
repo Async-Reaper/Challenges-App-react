@@ -5,6 +5,7 @@ import styled from '@emotion/styled'
 interface InputProps {
     label: string
     type? : string
+    value: string
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
@@ -14,9 +15,9 @@ const InputWrapper = styled(TextField)({
     }
 })
 
-const Input: FC<InputProps> = ({label, onChange, type}) => {
+const Input: FC<InputProps> = ({label, onChange, type, value}) => {
     return (
-        <InputWrapper label={label} type={type} variant="filled" margin='normal' onChange={onChange}/>
+        <InputWrapper label={label} type={type} value={value} variant="filled" margin='normal' onChange={onChange}/>
     )
 }
 
