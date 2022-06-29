@@ -1,5 +1,6 @@
 import { Button } from '@mui/material'
 import React, { FC } from 'react'
+import { useInput } from '../../hooks/useInput'
 import { useTypedDispatch } from '../../hooks/useTypedDispatch'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
 import { ICreateChallenge } from '../../models/ICreateChallenge'
@@ -13,13 +14,20 @@ import Input from '../UI/Input/Input'
 
 const FormCreateChallenge: FC = () => {
     const dispatch = useTypedDispatch()
-    const {date} = useTypedSelector(state => state.date)
+    const { date } = useTypedSelector(state => state.date)
+
+    const name = useInput('', {isEmpty: true})
+    const finishDate = useInput('', {isEmpty: true})
+    const goal = useInput('', {isEmpty: true})
+    const description = useInput('', {isEmpty: true})
+    const requirements = useInput('', {isEmpty: true})
+
     const newChallenge: ICreateChallenge = {
-        name: '',
-        finish_datetime: date,
-        goal: '',
-        description: '',
-        requirements: '',
+        name: name.value,
+        finish_datetime: finishDate.value,
+        goal: goal.value,
+        description: description.value,
+        requirements: requirements.value,
         bet: 0
     }
 
@@ -27,8 +35,6 @@ const FormCreateChallenge: FC = () => {
         e.preventDefault()
         if (newChallenge.name !== '' && newChallenge.goal !== '' && newChallenge.description !== '' && newChallenge) {
             dispatch(createChallenge(newChallenge))
-        } else {
-            dispatch(errorForm('Inputs must be filled!'))
         }
         
     }
@@ -41,22 +47,29 @@ const FormCreateChallenge: FC = () => {
             />
             <Input 
                 label='Name'
-                onChange={e => newChallenge.name = e.target.value}
+                value={name.value}
+                onChange={name.onChange}
             />
+            { (name.isDirty && name.isEmpty) && <ErrorText>The field is empty</ErrorText>}
             <Input 
                 label='Goal'
-                onChange={e => newChallenge.goal = e.target.value}
+                value={goal.value}
+                onChange={goal.onChange}
             />
+            { (goal.isDirty && goal.isEmpty) && <ErrorText>The field is empty</ErrorText>}
             <Input 
                 label='Description'
-                onChange={e => newChallenge.description = e.target.value}
+                value={description.value}
+                onChange={description.onChange}
             />
+            { (description.isDirty && description.isEmpty) && <ErrorText>The field is empty</ErrorText>}
             <Input 
                 label='Requirements'
-                onChange={e => newChallenge.requirements = e.target.value}
+                value={requirements.value}
+                onChange={requirements.onChange}
             />
+            { (requirements.isDirty && requirements.isEmpty) && <ErrorText>The field is empty</ErrorText>}
             <Button type='submit' variant="contained">Create challenge</Button>
-            <ErrorText />
         </FormWrapper>
     )
 }
