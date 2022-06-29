@@ -17,8 +17,8 @@ const FormLogin: FC = () => {
     const password = useInput('', {isEmpty: true})
     const { answer, error } = useTypedSelector(state => state.login)
     const dataLogin: IUserLogin = {
-        username: '',
-        password: ''
+        username: email.value,
+        password: password.value
     }
 
     const handleLogin = (e: React.MouseEvent<HTMLFormElement>) => {
