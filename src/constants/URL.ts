@@ -1,4 +1,4 @@
-export const urlDomain = 'http://bahbka.pythonanywhere.com/';
+export const urlDomain = 'https://bahbka.pythonanywhere.com/';
 
 export const urlGetChallenges =  'challenges/get_challenges_list/';
 export const urlGetChallengeById = 'challenges/get_detail_challenge/'
