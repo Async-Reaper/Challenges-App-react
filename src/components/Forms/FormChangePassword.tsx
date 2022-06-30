@@ -23,7 +23,7 @@ const FormChangePassword: FC = () => {
         password.onBlur();
         repeatPassword.onBlur();
 
-        if (newPassword.old_password !== '' && newPassword.new_password !== '' && newPassword.new_password2 !== '') {
+        if (!oldPassword.isEmpty && !password.isEmpty && !password.passwordValid && repeatPassword.isEmpty) {
             dispatch(changePassword(newPassword)) 
         }
     }

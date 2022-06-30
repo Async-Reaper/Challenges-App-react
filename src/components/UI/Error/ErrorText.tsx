@@ -5,7 +5,8 @@ import { useTypedSelector } from '../../../hooks/useTypedSelector'
 const Error = styled('span')({
     maxWidth: 282,
     color: '#f50057',
-    fontSize: 15
+    fontSize: 15,
+    fontWeight: 300,
 })
 
 interface IError {

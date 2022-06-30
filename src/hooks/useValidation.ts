@@ -28,7 +28,7 @@ export const useValidation = (value: string, validations: any) => {
     }, [value])
 
     useEffect(() => {
-        if (minLength || isEmpty) {
+        if (minLength || isEmpty || minLength || passwordValid || emailValid) {
             setFormValid(false)
         } else {
             setFormValid(true)

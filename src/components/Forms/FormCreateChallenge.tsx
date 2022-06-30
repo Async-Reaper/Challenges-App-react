@@ -39,7 +39,7 @@ const FormCreateChallenge: FC = () => {
         description.onBlur()
         requirements.onBlur()
         
-        if (newChallenge.name !== '' && newChallenge.goal !== '' && newChallenge.description !== '' && newChallenge) {
+        if (name.isEmpty && goal.isEmpty && description.isEmpty && requirements.isEmpty) {
             dispatch(createChallenge(newChallenge))
         }
         

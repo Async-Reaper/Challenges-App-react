@@ -21,7 +21,10 @@ const FormChangeEmail: FC = () => {
     const handleChangeEmail = (e: React.MouseEvent<HTMLFormElement>) => {
         e.preventDefault() 
         email.onBlur()
-        newEmail.new_user_email !== '' ? dispatch(changeEmail(newEmail)) : dispatch(errorForm('Inputs must be filled!'))
+        if (!email.isEmpty && !email.emailValid) {
+            dispatch(changeEmail(newEmail))
+        }
+        
     }
     return (
         <FormWrapper method='PUT' onSubmit={e => handleChangeEmail(e)}>

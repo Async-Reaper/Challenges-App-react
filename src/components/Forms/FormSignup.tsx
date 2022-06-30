@@ -40,10 +40,11 @@ const FormSignup: FC = () => {
         password.onBlur();
         repeatPassword.onBlur();
 
-        if (signupData.email !== '' && signupData.first_name !== '' && signupData.password !== '' && signupData.password2 !== '' && signupData.username !== '' && signupData.surname !== '') {
+        if (!firstName.isEmpty && !surname.isEmpty && !userName.isEmpty && !email.emailValid && !password.passwordValid && password.isEmpty && repeatPassword.value !== password.value) {
             dispatch(signupUser(signupData))
         }
     }
+    
     return (
         <FormWrapper method='POST' onSubmit={e => handleSignup(e)}>
             <Input 
