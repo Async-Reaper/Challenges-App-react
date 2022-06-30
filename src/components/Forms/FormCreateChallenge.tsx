@@ -17,7 +17,7 @@ const FormCreateChallenge: FC = () => {
     const { date } = useTypedSelector(state => state.date)
 
     const name = useInput('', {isEmpty: true})
-    const finishDate = useInput('', {isEmpty: true})
+    const finishDate = useInput(date, {isEmpty: true})
     const goal = useInput('', {isEmpty: true})
     const description = useInput('', {isEmpty: true})
     const requirements = useInput('', {isEmpty: true})
@@ -48,7 +48,7 @@ const FormCreateChallenge: FC = () => {
     return (
         <FormWrapper method='POST' onSubmit={e => handleCreateChallenge(e)}>
             <Calendar label="Finish datetime: "
-                        value={date}
+                        value={finishDate.value}
                         onChange={(newDate) => dispatch(setDate(newDate))}
             />
             <Input 
