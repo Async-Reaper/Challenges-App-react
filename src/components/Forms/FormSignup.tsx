@@ -40,7 +40,7 @@ const FormSignup: FC = () => {
         password.onBlur();
         repeatPassword.onBlur();
 
-        if (!firstName.isEmpty && !surname.isEmpty && !userName.isEmpty && !email.emailValid && !password.passwordValid && password.isEmpty && repeatPassword.value !== password.value) {
+        if (!firstName.isEmpty && !surname.isEmpty && !userName.isEmpty && !email.emailValid && !password.passwordValid && !password.isEmpty && repeatPassword.value === password.value) {
             dispatch(signupUser(signupData))
         }
     }
