@@ -50,7 +50,6 @@ const FormLogin: FC = () => {
                 <LoginOutlinedIcon />
                 Login
             </Button>
-            { error && <ErrorText>{answer}</ErrorText>}
         </FormWrapper>
     )
 }
