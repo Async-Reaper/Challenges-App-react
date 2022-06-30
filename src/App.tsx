@@ -6,9 +6,7 @@ import AppRoute from './components/AppRoute';
 import Sidebar from './components/UI/Sidebar/Sidebar';
 
 const AppWrapper = styled('div')({
-  display: 'grid',
-  gridTemplateColumns: '13% 1fr',
-  gridTemplateRows: '1fr',
+  display: 'flex'
 })
 
 function App() {
