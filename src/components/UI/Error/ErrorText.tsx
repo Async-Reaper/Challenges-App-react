@@ -3,8 +3,9 @@ import React, { FC } from 'react'
 import { useTypedSelector } from '../../../hooks/useTypedSelector'
 
 const Error = styled('span')({
-    color: '#e50000',
-    fontWeight: 300
+    maxWidth: 282,
+    color: '#f50057',
+    fontSize: 15
 })
 
 interface IError {

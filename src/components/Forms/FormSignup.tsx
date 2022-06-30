@@ -18,8 +18,8 @@ const FormSignup: FC = () => {
     const firstName = useInput('', {isEmpty: true})
     const surname = useInput('', {isEmpty: true})
     const userName = useInput('', {isEmpty: true})
-    const email = useInput('', {isEmpty: true})
-    const password = useInput('', {isEmpty: true})
+    const email = useInput('', {isEmpty: true, emailValid: true})
+    const password = useInput('', {isEmpty: true, passwordValid: true, minLength: 8})
     const repeatPassword = useInput('', {isEmpty: true})
 
     const signupData: IUserSignup = {
@@ -33,6 +33,13 @@ const FormSignup: FC = () => {
 
     const handleSignup = (e: React.MouseEvent<HTMLFormElement>) => {
         e.preventDefault();
+        firstName.onBlur();
+        surname.onBlur();
+        userName.onBlur();
+        email.onBlur();
+        password.onBlur();
+        repeatPassword.onBlur();
+
         if (signupData.email !== '' && signupData.first_name !== '' && signupData.password !== '' && signupData.password2 !== '' && signupData.username !== '' && signupData.surname !== '') {
             dispatch(signupUser(signupData))
         }
@@ -64,6 +71,7 @@ const FormSignup: FC = () => {
                 onChange={email.onChange}
             />
             { (email.isDirty && email.isEmpty) && <ErrorText>The field is empty</ErrorText>}
+            { (email.isDirty && email.emailValid) && <ErrorText>Email incorrected</ErrorText>}
             <Input 
                 label='Password'
                 type='password'
@@ -71,6 +79,8 @@ const FormSignup: FC = () => {
                 onChange={password.onChange}
             />
             { (password.isDirty && password.isEmpty) && <ErrorText>The field is empty</ErrorText>}
+            { (password.isDirty && password.minLength) && <ErrorText>Must be more than 8 characters</ErrorText>}
+            { (password.isDirty && password.passwordValid) && <ErrorText>The password must contain: latin capital and lowercase characters and numbers</ErrorText>}
             <Input 
                 label='Repeat password'
                 type='password'
@@ -78,6 +88,7 @@ const FormSignup: FC = () => {
                 onChange={repeatPassword.onChange}
             />
             { (repeatPassword.isDirty && repeatPassword.isEmpty) && <ErrorText>The field is empty</ErrorText>}
+            { (repeatPassword.isDirty && repeatPassword.value !== password.value) && <ErrorText>Passwords do not match</ErrorText>}
             <Button type='submit' variant="contained">
                 <AssignmentIndOutlinedIcon />
                 Signup

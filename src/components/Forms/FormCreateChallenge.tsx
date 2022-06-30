@@ -33,6 +33,12 @@ const FormCreateChallenge: FC = () => {
 
     const handleCreateChallenge = (e: React.MouseEvent<HTMLFormElement>) => {
         e.preventDefault()
+        name.onBlur()
+        finishDate.onBlur()
+        goal.onBlur()
+        description.onBlur()
+        requirements.onBlur()
+        
         if (newChallenge.name !== '' && newChallenge.goal !== '' && newChallenge.description !== '' && newChallenge) {
             dispatch(createChallenge(newChallenge))
         }

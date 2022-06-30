@@ -12,7 +12,7 @@ import Input from '../UI/Input/Input'
 
 const FormChangeEmail: FC = () => {
     const dispatch = useTypedDispatch()
-    const email = useInput('', {isEmpty: true})
+    const email = useInput('', {isEmpty: true, emailValid: true})
 
     const newEmail: IChangeEmail = {
         new_user_email: email.value
@@ -20,6 +20,7 @@ const FormChangeEmail: FC = () => {
 
     const handleChangeEmail = (e: React.MouseEvent<HTMLFormElement>) => {
         e.preventDefault() 
+        email.onBlur()
         newEmail.new_user_email !== '' ? dispatch(changeEmail(newEmail)) : dispatch(errorForm('Inputs must be filled!'))
     }
     return (
@@ -30,6 +31,7 @@ const FormChangeEmail: FC = () => {
                 onChange={email.onChange}
             />
             { (email.isDirty && email.isEmpty) && <ErrorText>The field is empty</ErrorText>}
+            { (email.isDirty && email.emailValid) && <ErrorText>Email incorrected</ErrorText>}
             <Button type='submit' variant="contained">Change email</Button>
         </FormWrapper>
     )

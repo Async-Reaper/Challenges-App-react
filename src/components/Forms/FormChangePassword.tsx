@@ -12,14 +12,17 @@ import { useInput } from '../../hooks/useInput'
 
 const FormChangePassword: FC = () => {
     const dispatch = useTypedDispatch()
-    const { error, answer } = useTypedSelector(state => state.settings)
 
     const oldPassword = useInput('', {isEmpty: true})
-    const password = useInput('', {isEmpty: true})
+    const password = useInput('', {isEmpty: true, minLength: 8, passwordValid: true})
     const repeatPassword = useInput('', {isEmpty: true})
 
     const handleChangePassword = (e: React.MouseEvent<HTMLFormElement>): void => {
         e.preventDefault()
+        oldPassword.onBlur();
+        password.onBlur();
+        repeatPassword.onBlur();
+
         if (newPassword.old_password !== '' && newPassword.new_password !== '' && newPassword.new_password2 !== '') {
             dispatch(changePassword(newPassword)) 
         }
@@ -47,6 +50,8 @@ const FormChangePassword: FC = () => {
                 onChange={password.onChange}
             />
             { (password.isDirty && password.isEmpty) && <ErrorText>The field is empty</ErrorText>}
+            { (password.isDirty && password.minLength) && <ErrorText>Must be more than 8 characters</ErrorText>}
+            { (password.isDirty && password.passwordValid) && <ErrorText>The password must contain: latin capital and lowercase characters and numbers</ErrorText>}
             <Input 
                 label='New password' 
                 type='password' 
@@ -54,7 +59,7 @@ const FormChangePassword: FC = () => {
                 onChange={repeatPassword.onChange}
             />
             { (repeatPassword.isDirty && repeatPassword.isEmpty) && <ErrorText>The field is empty</ErrorText>}
-            
+            { (repeatPassword.isDirty && repeatPassword.value !== password.value) && <ErrorText>TPasswords do not match</ErrorText>}
             <Button type='submit' variant="contained">Change password</Button>
             
         </FormWrapper>
