@@ -14,7 +14,7 @@ const Aside = styled('aside')({
     background:' #12043f',
     '@media (max-width: 750px)' : {
         position: 'relative',
-        width: '98vw',
+        width: '100vw',
         minHeight: '100px'
     }
 })
