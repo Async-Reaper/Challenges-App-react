@@ -14,6 +14,18 @@ const AsidePrivate = styled('div')({
     gridTemplateRows: '1fr 1fr 1fr',
     gridTemplateColumns: '1fr',
     gridGap: 15,
+    '@media (max-width: 750px)' : {
+        gridTemplateRows: '1fr',
+        gridTemplateColumns: '1fr 1fr 1fr',
+    },
+    '@media (max-width: 520px)' : {
+        gridTemplateRows: '1fr',
+        gridTemplateColumns: '1fr 1fr',
+    },
+    '@media (max-width: 360px)' : {
+        gridTemplateRows: '1fr',
+        gridTemplateColumns: '1fr',
+    }
 })
 
 

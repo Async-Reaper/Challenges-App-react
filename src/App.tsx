@@ -6,7 +6,12 @@ import AppRoute from './components/AppRoute';
 import Sidebar from './components/UI/Sidebar/Sidebar';
 
 const AppWrapper = styled('div')({
-  display: 'flex'
+  display: 'flex',
+  '@media (max-width: 750px)' : {
+    display: 'flex',
+    flexDirection: 'column',
+    overflowX: 'hidden',
+  }
 })
 
 function App() {
