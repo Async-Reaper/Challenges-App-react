@@ -14,15 +14,15 @@ const AsidePrivate = styled('div')({
     gridTemplateRows: '1fr 1fr 1fr',
     gridTemplateColumns: '1fr',
     gridGap: 15,
-    '@media (max-width: 750px)' : {
+    '@media (max-width: 750px)': {
         gridTemplateRows: '1fr',
         gridTemplateColumns: '1fr 1fr 1fr',
     },
-    '@media (max-width: 520px)' : {
+    '@media (max-width: 520px)': {
         gridTemplateRows: '1fr',
         gridTemplateColumns: '1fr 1fr',
     },
-    '@media (max-width: 360px)' : {
+    '@media (max-width: 360px)': {
         gridTemplateRows: '1fr',
         gridTemplateColumns: '1fr',
     }
@@ -41,13 +41,13 @@ const SidebarPrivate: FC = () => {
         <AsidePrivate>
             <ButtonLink>
                 <SettingsIcon />
-                <Link to={'/settings'}>Settings</Link>
+                <Link data-testid='link-settings' to={'/settings'}>Settings</Link>
             </ButtonLink>
             <ButtonLink>
                 <ModeStandbyIcon />
-                <Link to={'/challenges'}>Challenges</Link>
+                <Link data-testid='link-challenges' to={'/challenges'}>Challenges</Link>
             </ButtonLink>
-            <Signout onClick={() => handleSignout()}/>
+            <Signout onClick={() => handleSignout()} />
         </AsidePrivate>
     )
 }

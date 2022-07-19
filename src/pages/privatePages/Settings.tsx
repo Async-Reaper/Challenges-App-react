@@ -6,9 +6,9 @@ import Popup from '../../components/UI/Popup/Popup';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 
 const Settings: FC = () => {
-    const {loading, answer} = useTypedSelector(state => state.settings)
+    const { loading, answer } = useTypedSelector(state => state.settings)
     return (
-        <MainWrapper>
+        <MainWrapper data-testid='settings-page'>
             <Popup />
             {loading ? <Loader /> : <SettingsAccordion />}
         </MainWrapper>

@@ -21,9 +21,10 @@ const rootReducer = combineReducers({
     [postApi.reducerPath]: postApi.reducer
 })
 
-export const setupStore = () => {
+export const setupStore = (initialState: any = {}) => {
     return configureStore({
         reducer: rootReducer,
+        preloadedState: initialState,
         middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(postApi.middleware)
     })
 }
