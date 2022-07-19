@@ -10,23 +10,13 @@ describe('Testing sidebar private', () => {
     renderReduxRoute(<SidebarPrivate />);
     const linkSettings = screen.getByTestId('link-settings');
     userEvent.click(linkSettings)
-    // screen.debug()
     expect(screen.getByTestId('settings-page')).toBeInTheDocument()
   });
 
-  test('link challenge by id', () => {
+  test('link challenges', () => {
     renderReduxRoute(<SidebarPrivate />);
-    const linkSettings = screen.getByTestId('link-challengeById');
-    userEvent.click(linkSettings)
-    // screen.debug()
-    expect(screen.getByTestId('challengeById-page')).toBeInTheDocument()
-  });
-
-  it('link challenges', () => {
-    renderReduxRoute(<SidebarPrivate />);
-    const linkSettings = screen.getByTestId('link-challenges');
-    userEvent.click(linkSettings)
-    // screen.debug()
+    const linkChallenges = screen.getByTestId('link-challenges');
+    userEvent.click(linkChallenges)
     expect(screen.getByTestId('challenges-page')).toBeInTheDocument()
   });
 });

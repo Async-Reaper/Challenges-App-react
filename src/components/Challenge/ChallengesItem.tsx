@@ -10,9 +10,9 @@ interface ChallengeItemProps {
     challenge: IChallenge
 }
 
-const ChallengesItem: FC<ChallengeItemProps> = ({challenge}) => {
+const ChallengesItem: FC<ChallengeItemProps> = ({ challenge }) => {
     const navigate = useNavigate()
-    const {loginStatus} = useTypedSelector(state => state.login)
+    const { loginStatus } = useTypedSelector(state => state.login)
 
     return (
         <ChallengeWrapper>
@@ -21,8 +21,8 @@ const ChallengesItem: FC<ChallengeItemProps> = ({challenge}) => {
             <li>Goal: {challenge.goal}</li>
             <li>Members amount: {challenge.members_amount}</li>
             <li>Finish datetime: {challenge.finish_datetime}</li>
-            {loginStatus && 
-                <Button variant="contained" onClick={() => navigate(`/challenges/${challenge.challenge_id}`)}>
+            {loginStatus &&
+                <Button data-testid='link-challengeById' variant="contained" onClick={() => navigate(`/challenges/${challenge.challenge_id}`)}>
                     <InfoOutlinedIcon />
                 </Button>
             }

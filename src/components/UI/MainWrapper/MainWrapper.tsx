@@ -3,6 +3,7 @@ import React, { FC } from 'react'
 
 interface MainProps {
     children: any
+    dataTestid?: string
 }
 
 const Main = styled('main')({
@@ -10,9 +11,9 @@ const Main = styled('main')({
     padding: 20,
 })
 
-const MainWrapper: FC<MainProps> = ({children}) => {
+const MainWrapper: FC<MainProps> = ({ children, dataTestid }) => {
     return (
-        <Main>{children}</Main>
+        <Main data-testid={dataTestid}>{children}</Main>
     )
 }
 

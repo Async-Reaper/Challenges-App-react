@@ -13,7 +13,7 @@ const Challenge: FC = () => {
     const { data: challengeMembers } = postApi.useGetChallengeMembersQuery(params.id!)
 
     return (
-        <MainWrapper data-testid='challengeById-page'>
+        <MainWrapper dataTestid='challengeById-page'>
             <Popup />
             {isLoading && <Loader />}
             {challenge && <ChallengeById challenge={challenge} />}

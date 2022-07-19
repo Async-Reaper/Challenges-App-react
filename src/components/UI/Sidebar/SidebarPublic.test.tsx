@@ -15,15 +15,15 @@ describe('Testing sidebar private', () => {
 
    test('link login', () => {
       renderReduxRoute(<SidebarPublic />);
-      const linkChallenges = screen.getByTestId('link-login');
-      userEvent.click(linkChallenges)
+      const linkLogin = screen.getByTestId('link-login');
+      userEvent.click(linkLogin)
       expect(screen.getByTestId('login-page')).toBeInTheDocument()
    });
 
    test('link signup', () => {
       renderReduxRoute(<SidebarPublic />);
-      const linkChallenges = screen.getByTestId('link-signup');
-      userEvent.click(linkChallenges)
+      const linkSignup = screen.getByTestId('link-signup');
+      userEvent.click(linkSignup)
       expect(screen.getByTestId('signup-page')).toBeInTheDocument()
    });
 });

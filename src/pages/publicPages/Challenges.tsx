@@ -11,7 +11,7 @@ const Challenges: FC = () => {
     const { data: challenges, isLoading } = postApi.useGetAllChallengesQuery('')
     const { loginStatus } = useTypedSelector(state => state.login)
     return (
-        <MainWrapper data-testid='challenges-page'>
+        <MainWrapper dataTestid='challenges-page'>
             <Popup />
             {loginStatus && <CreateChallenge />}
             {isLoading && <Loader />}

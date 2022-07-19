@@ -9,7 +9,7 @@ import { useTypedSelector } from '../../hooks/useTypedSelector'
 const Signup: FC = () => {
     const { loading, message } = useTypedSelector(state => state.signup)
     return (
-        <MainWrapper data-testid='signup-page'>
+        <MainWrapper dataTestid='signup-page'>
             <Popup />
             <PopupError />
             {loading ? <Loader /> : <FormSignup />}

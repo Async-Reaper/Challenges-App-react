@@ -8,7 +8,7 @@ import { useTypedSelector } from '../../hooks/useTypedSelector';
 const Settings: FC = () => {
     const { loading, answer } = useTypedSelector(state => state.settings)
     return (
-        <MainWrapper data-testid='settings-page'>
+        <MainWrapper dataTestid='settings-page'>
             <Popup />
             {loading ? <Loader /> : <SettingsAccordion />}
         </MainWrapper>
