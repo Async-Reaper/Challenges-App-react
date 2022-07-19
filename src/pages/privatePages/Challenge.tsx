@@ -9,11 +9,11 @@ import { postApi } from '../../services/PostService'
 
 const Challenge: FC = () => {
     const params = useParams()
-    const {data: challenge, isLoading} = postApi.useGetChallengeByIdQuery(params.id!)
-    const {data: challengeMembers} = postApi.useGetChallengeMembersQuery(params.id!)
+    const { data: challenge, isLoading } = postApi.useGetChallengeByIdQuery(params.id!)
+    const { data: challengeMembers } = postApi.useGetChallengeMembersQuery(params.id!)
 
     return (
-        <MainWrapper>
+        <MainWrapper data-testid='challengeById-page'>
             <Popup />
             {isLoading && <Loader />}
             {challenge && <ChallengeById challenge={challenge} />}

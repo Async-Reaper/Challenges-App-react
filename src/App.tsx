@@ -7,7 +7,7 @@ import Sidebar from './components/UI/Sidebar/Sidebar';
 
 const AppWrapper = styled('div')({
   display: 'flex',
-  '@media (max-width: 750px)' : {
+  '@media (max-width: 750px)': {
     display: 'flex',
     flexDirection: 'column',
     overflowX: 'hidden',
@@ -19,7 +19,7 @@ function App() {
     <BrowserRouter>
       <AppWrapper>
         <Sidebar />
-        <AppRoute/>
+        <AppRoute />
       </AppWrapper>
     </BrowserRouter>
   );

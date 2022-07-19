@@ -7,9 +7,9 @@ import PopupError from '../../components/UI/Popup/PopupError'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
 
 const Signup: FC = () => {
-    const {loading, message} = useTypedSelector(state => state.signup)
+    const { loading, message } = useTypedSelector(state => state.signup)
     return (
-        <MainWrapper>
+        <MainWrapper data-testid='signup-page'>
             <Popup />
             <PopupError />
             {loading ? <Loader /> : <FormSignup />}

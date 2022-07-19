@@ -41,11 +41,11 @@ const SidebarPrivate: FC = () => {
         <AsidePrivate>
             <ButtonLink>
                 <SettingsIcon />
-                <Link data-testid='link-settings' to={'/settings'}>Settings</Link>
+                <Link to={'/settings'} data-testid='link-settings'>Settings</Link>
             </ButtonLink>
             <ButtonLink>
                 <ModeStandbyIcon />
-                <Link data-testid='link-challenges' to={'/challenges'}>Challenges</Link>
+                <Link to={'/challenges'} data-testid='link-challenges'>Challenges</Link>
             </ButtonLink>
             <Signout onClick={() => handleSignout()} />
         </AsidePrivate>

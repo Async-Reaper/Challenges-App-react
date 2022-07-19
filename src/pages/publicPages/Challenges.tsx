@@ -8,15 +8,15 @@ import { useTypedSelector } from '../../hooks/useTypedSelector'
 import { postApi } from '../../services/PostService'
 
 const Challenges: FC = () => {
-    const {data: challenges, isLoading} = postApi.useGetAllChallengesQuery('')
-    const {loginStatus} = useTypedSelector(state => state.login)
+    const { data: challenges, isLoading } = postApi.useGetAllChallengesQuery('')
+    const { loginStatus } = useTypedSelector(state => state.login)
     return (
-        <MainWrapper>
+        <MainWrapper data-testid='challenges-page'>
             <Popup />
             {loginStatus && <CreateChallenge />}
             {isLoading && <Loader />}
-            {challenges && challenges.map(challenge => 
-                <ChallengesItem key={challenge.challenge_id} challenge={challenge}/>
+            {challenges && challenges.map(challenge =>
+                <ChallengesItem key={challenge.challenge_id} challenge={challenge} />
             )}
         </MainWrapper>
     )
