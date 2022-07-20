@@ -15,14 +15,15 @@ const SignoutButton = styled(Button)({
 })
 
 interface ISignoutProps {
-    onClick: () => void
+    onClick: () => void;
+    dataTestId: string
 }
 
-const Signout: FC<ISignoutProps> = ({onClick}) => {
+const Signout: FC<ISignoutProps> = ({ onClick, dataTestId }) => {
     return (
-        <SignoutButton type='submit' onClick={onClick} variant="contained">
-                <ExitToAppOutlinedIcon />
-                signout
+        <SignoutButton data-testid={dataTestId} type='submit' onClick={onClick} variant="contained">
+            <ExitToAppOutlinedIcon />
+            signout
         </SignoutButton>
     )
 }

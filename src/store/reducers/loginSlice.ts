@@ -53,4 +53,4 @@ const loginSlice = createSlice({
 })
 
 export default loginSlice.reducer
-export const {setLoginStatus, loginFetch, loginFetchError, loginFetchSuccess, logoutFetch, logoutFetchSuccess} = loginSlice.actions
+export const { setLoginStatus, loginFetch, loginFetchError, loginFetchSuccess, logoutFetch, logoutFetchSuccess } = loginSlice.actions

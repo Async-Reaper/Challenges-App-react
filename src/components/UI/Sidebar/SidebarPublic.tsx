@@ -27,7 +27,7 @@ const AsidePublic = styled('div')({
 
 const SidebarPublic: FC = () => {
     return (
-        <AsidePublic>
+        <AsidePublic data-testid='sidebar-public'>
             <ButtonLink>
                 <LoginOutlinedIcon />
                 <Link to={'/login'} data-testid='link-login'>Login</Link>

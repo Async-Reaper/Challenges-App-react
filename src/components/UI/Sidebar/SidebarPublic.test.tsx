@@ -4,9 +4,9 @@ import { renderReduxRoute } from "../../../helpers/testing/renderReduxRouter";
 import SidebarPublic from "./SidebarPublic";
 
 
-describe('Testing sidebar private', () => {
+describe('Testing sidebar public', () => {
 
-   test('link settings', () => {
+   test('link challenges', () => {
       renderReduxRoute(<SidebarPublic />);
       const linkChallenges = screen.getByTestId('link-challenges');
       userEvent.click(linkChallenges)

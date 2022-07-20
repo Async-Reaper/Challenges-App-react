@@ -38,7 +38,7 @@ const SidebarPrivate: FC = () => {
     }
 
     return (
-        <AsidePrivate>
+        <AsidePrivate data-testid='sidebar-private'>
             <ButtonLink>
                 <SettingsIcon />
                 <Link to={'/settings'} data-testid='link-settings'>Settings</Link>
@@ -47,7 +47,7 @@ const SidebarPrivate: FC = () => {
                 <ModeStandbyIcon />
                 <Link to={'/challenges'} data-testid='link-challenges'>Challenges</Link>
             </ButtonLink>
-            <Signout onClick={() => handleSignout()} />
+            <Signout dataTestId='button-logout' onClick={() => handleSignout()} />
         </AsidePrivate>
     )
 }
