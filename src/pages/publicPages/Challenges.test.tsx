@@ -1,15 +1,17 @@
 import { screen } from "@testing-library/react";
-import axios from "axios";
+import fetchMock from "jest-fetch-mock";
 import { renderReduxRoute } from "../../helpers/testing/renderReduxRouter";
-import Challenges from "./Challenges";
+import { postApi } from "../../services/PostService";
+import { setupApiStore } from "../../store/testStore";
 
-jest.mock('axios')
+fetchMock.resetMocks();
 
 describe('Challenges test', () => {
+   const storeRef = setupApiStore(postApi, { data:  challenges});
+   fetchMock.mockResponse(JSON.stringify({}));
 
    let response: any
-   beforeEach(() => {
-      response = {
+   beforeEach(() => {      response = {
          data: [
             {
                "name": "challenge_name2",
@@ -40,7 +42,7 @@ describe('Challenges test', () => {
    })
 
    test('show challenge item', async () => {
-      axios.get.mockReturnValue(response);
+
       renderReduxRoute()
       const challengeItems = await screen.findAllByTestId('challenge-item')
       screen.debug()
