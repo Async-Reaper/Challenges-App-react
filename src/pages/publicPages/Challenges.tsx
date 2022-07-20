@@ -16,7 +16,7 @@ const Challenges: FC = () => {
             {loginStatus && <CreateChallenge />}
             {isLoading && <Loader />}
             {challenges && challenges.map(challenge =>
-                <ChallengesItem key={challenge.challenge_id} challenge={challenge} />
+                <ChallengesItem data-testid='challenge-item' key={challenge.challenge_id} challenge={challenge} />
             )}
         </MainWrapper>
     )

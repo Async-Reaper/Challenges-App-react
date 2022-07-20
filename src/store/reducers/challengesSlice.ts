@@ -44,11 +44,11 @@ const challengesSlice = createSlice({
             state.loading = false;
             state.answer = action.payload
         },
-        setAcceptStatus (state, action) {
+        setAcceptStatus(state, action) {
             state.acceptStatus = action.payload
         }
     }
 })
 
 export default challengesSlice.reducer
-export const { setAcceptStatus, acceptChallengeFetch, acceptChallengeSuccess, acceptChalleneError, createChallengeFetch, createChallengeSuccess, createChalleneError} = challengesSlice.actions
+export const { setAcceptStatus, acceptChallengeFetch, acceptChallengeSuccess, acceptChalleneError, createChallengeFetch, createChallengeSuccess, createChalleneError } = challengesSlice.actions
