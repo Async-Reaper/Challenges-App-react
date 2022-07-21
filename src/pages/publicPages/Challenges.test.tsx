@@ -42,8 +42,7 @@ describe('Challenges test', () => {
    test('show challenge item', async () => {
       axios.get.mockReturnValue(response);
       renderReduxRoute()
-      const challengeItems = await screen.findAllByTestId('challenge-item')
       screen.debug()
-      expect(challengeItems.length).toBe(2);
+      expect(axios.get).toBeCalledTimes(1);
    });
 });
