@@ -2,7 +2,8 @@ import styled from '@emotion/styled'
 import React, { FC } from 'react'
 
 interface ChallengeWrapperProps {
-    children: any
+    children: any;
+    dataTestId?: string
 }
 
 const ChallengesWrapper = styled('ul')({
@@ -14,9 +15,9 @@ const ChallengesWrapper = styled('ul')({
     marginBottom: 25,
 })
 
-const ChallengeWrapper: FC<ChallengeWrapperProps> = ({children}) => {
+const ChallengeWrapper: FC<ChallengeWrapperProps> = ({ children, dataTestId }) => {
     return (
-        <ChallengesWrapper>{children}</ChallengesWrapper>
+        <ChallengesWrapper data-testid={dataTestId}>{children}</ChallengesWrapper>
     )
 }
 

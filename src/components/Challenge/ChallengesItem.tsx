@@ -15,7 +15,7 @@ const ChallengesItem: FC<ChallengeItemProps> = ({ challenge }) => {
     const { loginStatus } = useTypedSelector(state => state.login)
 
     return (
-        <ChallengeWrapper>
+        <ChallengeWrapper dataTestId='challenge-item'>
             <li>Name: {challenge.name}</li>
             <li>Creator: {challenge.creator}</li>
             <li>Goal: {challenge.goal}</li>

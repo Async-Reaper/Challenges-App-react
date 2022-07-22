@@ -1,13 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { IChallenge } from "../../models/IChallenge";
 
 interface IChallengesSlice {
     loading: boolean;
     error: boolean;
     answer: string;
+    challenges: IChallenge[]
     acceptStatus: boolean
 }
 
 const initialState: IChallengesSlice = {
+    challenges: [],
     loading: false,
     error: false,
     answer: '',
@@ -18,6 +21,20 @@ const challengesSlice = createSlice({
     name: 'challenges',
     initialState,
     reducers: {
+        getChallengeFetch(state) {
+            state.loading = true
+            state.error = false
+        },
+        getChallengeSuccess(state, action) {
+            state.loading = false;
+            state.challenges = action.payload
+            state.error = false
+        },
+        getChalleneError(state) {
+            state.loading = false;
+            state.error = true
+        },
+
         createChallengeFetch(state) {
             state.loading = true
             state.error = false
@@ -51,4 +68,4 @@ const challengesSlice = createSlice({
 })
 
 export default challengesSlice.reducer
-export const { setAcceptStatus, acceptChallengeFetch, acceptChallengeSuccess, acceptChalleneError, createChallengeFetch, createChallengeSuccess, createChalleneError } = challengesSlice.actions
+export const { getChallengeFetch, getChallengeSuccess, getChalleneError, setAcceptStatus, acceptChallengeFetch, acceptChallengeSuccess, acceptChalleneError, createChallengeFetch, createChallengeSuccess, createChalleneError } = challengesSlice.actions

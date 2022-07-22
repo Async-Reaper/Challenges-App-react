@@ -1,17 +1,15 @@
 import { screen } from "@testing-library/react";
-import fetchMock from "jest-fetch-mock";
+import userEvent from "@testing-library/user-event";
+import axios from "axios";
 import { renderReduxRoute } from "../../helpers/testing/renderReduxRouter";
-import { postApi } from "../../services/PostService";
-import { setupApiStore } from "../../store/testStore";
 
-fetchMock.resetMocks();
+jest.mock('axios');
+const mockedAxios = axios as jest.Mocked<typeof axios>;
+describe('Testing challenge component', () => {
 
-describe('Challenges test', () => {
-   const storeRef = setupApiStore(postApi, { data:  challenges});
-   fetchMock.mockResponse(JSON.stringify({}));
-
-   let response: any
-   beforeEach(() => {      response = {
+   let response: any;
+   beforeEach(() => {
+      response = {
          data: [
             {
                "name": "challenge_name2",
@@ -41,10 +39,24 @@ describe('Challenges test', () => {
       jest.clearAllMocks();
    })
 
-   test('show challenge item', async () => {
-
+   test('Show challenge-item', async () => {
+      mockedAxios.get.mockReturnValue(response)
       renderReduxRoute()
-      screen.debug()
-      expect(axios.get).toBeCalledTimes(1);
-   });
+      const challengeItem = await screen.findAllByTestId('challenge-item')
+      expect(challengeItem.length).toBe(2)
+      expect(challengeItem[0]).toBeInTheDocument()
+   })
+
+   test('Redirect to challenge by id', async () => {
+      mockedAxios.get.mockReturnValue(response)
+      renderReduxRoute(null, '/',
+         { login: { loginStatus: true } }
+      )
+      const challengeItem = await screen.findAllByTestId('challenge-item')
+      // const linkChallengeByID = await screen.findAllByTestId('link-challengeById')
+
+      // expect(linkChallengeByID).toBeInTheDocument()
+      // userEvent.click(challengeItem[0])
+      // expect(screen.getByTestId('challengeById-page')).toBeInTheDocument()
+   })
 });
