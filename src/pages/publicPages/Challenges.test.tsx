@@ -1,9 +1,6 @@
 import { screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import axios from "axios";
-import SidebarPrivate from "../../components/UI/Sidebar/SidebarPrivate";
 import { renderReduxRoute } from "../../helpers/testing/renderReduxRouter";
-import Challenges from "./Challenges";
 
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
