@@ -4,12 +4,12 @@ import { MemoryRouter } from 'react-router-dom'
 import AppRoute from '../../components/AppRoute'
 import { setupStore } from '../../store/store'
 
-export const renderReduxRoute = (component?: any, initialEntries: string = '/', initialState?: any) => {
-  const store = setupStore(initialState)
+export const renderReduxRoute = (component?: any, options?: any) => {
+  const store = setupStore(options?.route)
 
   return render(
     <Provider store={(store)}>
-      <MemoryRouter initialEntries={[initialEntries]}>
+      <MemoryRouter initialEntries={[options?.initialEntries]}>
         {component}
         <AppRoute />
       </MemoryRouter>

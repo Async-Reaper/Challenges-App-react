@@ -1,7 +1,9 @@
 import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import axios from "axios";
+import SidebarPrivate from "../../components/UI/Sidebar/SidebarPrivate";
 import { renderReduxRoute } from "../../helpers/testing/renderReduxRouter";
+import Challenges from "./Challenges";
 
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
@@ -49,9 +51,7 @@ describe('Testing challenge component', () => {
 
    test('Redirect to challenge by id', async () => {
       mockedAxios.get.mockReturnValue(response)
-      renderReduxRoute(null, '/',
-         { login: { loginStatus: true } }
-      )
+      renderReduxRoute()
       const challengeItem = await screen.findAllByTestId('challenge-item')
       // const linkChallengeByID = await screen.findAllByTestId('link-challengeById')
 
