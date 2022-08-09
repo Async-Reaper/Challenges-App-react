@@ -1,4 +1,5 @@
 import { screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import axios from "axios";
 import { renderReduxRoute } from "../../helpers/testing/renderReduxRouter";
 
@@ -36,6 +37,7 @@ describe('Testing challenge component', () => {
 
    afterEach(() => {
       jest.clearAllMocks();
+      localStorage.clear()
    })
 
    test('Show challenge-item', async () => {
@@ -48,12 +50,14 @@ describe('Testing challenge component', () => {
 
    test('Redirect to challenge by id', async () => {
       mockedAxios.get.mockReturnValue(response)
-      renderReduxRoute()
-      const challengeItem = await screen.findAllByTestId('challenge-item')
-      // const linkChallengeByID = await screen.findAllByTestId('link-challengeById')
+      localStorage.setItem('token', '32')
+      renderReduxRoute(null, { route: '/', login: { loginStatus: true } })
 
-      // expect(linkChallengeByID).toBeInTheDocument()
-      // userEvent.click(challengeItem[0])
+      const challengeItem = await screen.findAllByTestId('challenge-item')
+      const linkChallengeByID = await screen.findAllByTestId('link-challengeById')
+
+      expect(linkChallengeByID[0]).toBeInTheDocument()
+      userEvent.click(linkChallengeByID[0])
       // expect(screen.getByTestId('challengeById-page')).toBeInTheDocument()
    })
 });
