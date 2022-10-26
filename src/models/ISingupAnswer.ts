@@ -3,5 +3,5 @@ export interface ISignupAnswer {
 	surname: string;
 	username: string;
     email: string;
-	message: string
+	message: string;
 }
