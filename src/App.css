@@ -16,7 +16,10 @@ h6 {
 a {
   text-decoration: none;
   padding: 5px;
-  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 17px;
+  line-height: 24px;
+  font-weight: 400;
 }
 
 li {
@@ -25,7 +28,7 @@ li {
 }
 
 body {
-  color: #0C53A6;
+  color: #0c53a6;
   font-size: 17px;
   line-height: 24px;
   font-weight: 500;

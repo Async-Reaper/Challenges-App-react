@@ -1,21 +1,9 @@
-import styled from "@emotion/styled";
-import React, { FC } from "react";
+import React, {FC} from "react";
+import {IChallengeWrapperProps} from "./ChallengeWrapper.types";
+import {ChallengesWrapper} from "./ChallengeWrapper.style";
 
-interface ChallengeWrapperProps {
-  children: React.ReactNode;
-  dataTestId?: string;
-}
 
-const ChallengesWrapper = styled("ul")({
-  boxShadow: "0 0 10px #362666",
-  background: "#362666",
-  color: "#e7dfff",
-  borderRadius: 10,
-  padding: 20,
-  marginBottom: 25,
-});
-
-const ChallengeWrapper: FC<ChallengeWrapperProps> = ({
+const ChallengeWrapper: FC<IChallengeWrapperProps> = ({
   children,
   dataTestId,
 }) => {

@@ -1,13 +1,6 @@
-import React, { FC } from "react";
+import React, {FC} from "react";
 import CircularProgress from "@mui/material/CircularProgress";
-import styled from "@emotion/styled";
-
-const LoaderWrapper = styled("div")({
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  margin: 50,
-});
+import {LoaderWrapper} from "./Loader.style";
 
 const Loader: FC = () => {
   return (

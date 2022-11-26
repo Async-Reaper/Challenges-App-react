@@ -1,32 +1,12 @@
-import styled from "@emotion/styled";
-import { Button } from "@mui/material";
-import React, { FC } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import ModeStandbyIcon from "@mui/icons-material/ModeStandby";
+import SettingsIcon from "@mui/icons-material/Settings";
+import { FC } from "react";
+import { useNavigate } from "react-router-dom";
 import { useTypedDispatch } from "../../../../hooks/useTypedDispatch";
 import { signoutUser } from "../../../../services/SignoutService";
-import Signout from "../../Button/Signout";
-import SettingsIcon from "@mui/icons-material/Settings";
-import ModeStandbyIcon from "@mui/icons-material/ModeStandby";
-import ButtonLink from "../../Button/ButtonLink";
-
-const AsidePrivate = styled("div")({
-  display: "grid",
-  gridTemplateRows: "1fr 1fr 1fr",
-  gridTemplateColumns: "1fr",
-  gridGap: 15,
-  "@media (max-width: 750px)": {
-    gridTemplateRows: "1fr",
-    gridTemplateColumns: "1fr 1fr 1fr",
-  },
-  "@media (max-width: 520px)": {
-    gridTemplateRows: "1fr",
-    gridTemplateColumns: "1fr 1fr",
-  },
-  "@media (max-width: 360px)": {
-    gridTemplateRows: "1fr",
-    gridTemplateColumns: "1fr",
-  },
-});
+import ButtonLink from "../../Button/ButtonLink/ButtonLink";
+import Signout from "../../Button/Signout/Signout";
+import { AsidePrivate } from "./SidebarPrivate.style";
 
 const SidebarPrivate: FC = () => {
   const dispatch = useTypedDispatch();
@@ -38,17 +18,13 @@ const SidebarPrivate: FC = () => {
 
   return (
     <AsidePrivate data-testid="sidebar-private">
-      <ButtonLink>
-        <Link to={"/settings"} data-testid="link-settings">
-          <SettingsIcon />
-          Settings
-        </Link>
+      <ButtonLink to={"/settings"} data-testid="link-settings">
+        <SettingsIcon />
+        Settings
       </ButtonLink>
-      <ButtonLink>
+      <ButtonLink to={"/challenges"} data-testid="link-challenges">
         <ModeStandbyIcon />
-        <Link to={"/challenges"} data-testid="link-challenges">
-          Challenges
-        </Link>
+        Challenges
       </ButtonLink>
       <Signout dataTestId="button-logout" onClick={() => handleSignout()} />
     </AsidePrivate>

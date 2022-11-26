@@ -1,19 +1,8 @@
-import styled from '@emotion/styled'
-import React, { FC } from 'react'
-import { useTypedSelector } from '../../../hooks/useTypedSelector'
+import React, {FC} from 'react'
+import {Error} from "./ErrorText.style";
+import {IErrorProps} from "./ErrorText.types";
 
-const Error = styled('span')({
-    maxWidth: 282,
-    color: '#f50057',
-    fontSize: 15,
-    fontWeight: 300,
-})
-
-interface IError {
-    children: string
-}
-
-const ErrorText: FC<IError> = ({children}) => {
+const ErrorText: FC<IErrorProps> = ({children}) => {
     return (
         <Error>
             *{children}

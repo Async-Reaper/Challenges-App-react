@@ -3,22 +3,11 @@ import React, { FC } from "react";
 import { useTypedDispatch } from "../../../hooks/useTypedDispatch";
 import { useTypedSelector } from "../../../hooks/useTypedSelector";
 import { setStatusModal } from "../../../store/reducers/modalSlice";
+import {IModalWindowProps} from "./ModalWindow.types";
+import {style} from "./ModalWindow.style";
 
-interface ModalWindowProps {
-  children: React.ReactNode;
-}
 
-const style = {
-  position: "absolute" as "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "transparent",
-  p: 4,
-};
-
-const ModalWindow: FC<ModalWindowProps> = ({ children }) => {
+const ModalWindow: FC<IModalWindowProps> = ({ children }) => {
   const { modalStatus } = useTypedSelector((state) => state.modal);
   const dispatch = useTypedDispatch();
   return (

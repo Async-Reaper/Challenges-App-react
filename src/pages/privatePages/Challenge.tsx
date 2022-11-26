@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { useParams } from "react-router-dom";
-import ChallengeById from "../../components/Challenge/ChallengeById";
-import ChallengeMembers from "../../components/Challenge/ChallengeMembers";
+import ChallengeById from "../../components/Challenge/ChallengeById/ChallengeById";
+import ChallengeMembers from "../../components/Challenge/ChallegeMembers/ChallengeMembers";
 import Loader from "../../components/UI/Loader/Loader";
 import MainWrapper from "../../components/UI/MainWrapper/MainWrapper";
 import Popup from "../../components/UI/Popup/Popup";

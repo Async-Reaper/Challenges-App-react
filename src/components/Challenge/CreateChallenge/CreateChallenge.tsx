@@ -1,12 +1,12 @@
 import { Button } from "@mui/material";
-import React from "react";
-import { useTypedDispatch } from "../../hooks/useTypedDispatch";
-import { setStatusModal } from "../../store/reducers/modalSlice";
-import FormCreateChallenge from "../Forms/FormCreateChallenge";
-import ModalWindow from "../UI/ModalWindow/ModalWindow";
+import React, { FC } from "react";
+import { useTypedDispatch } from "../../../hooks/useTypedDispatch";
+import { setStatusModal } from "../../../store/reducers/modalSlice";
+import FormCreateChallenge from "../../Forms/FormCreateChallenge";
+import ModalWindow from "../../UI/ModalWindow/ModalWindow";
 import AddBoxIcon from "@mui/icons-material/AddBox";
 
-const CreateChallenge = () => {
+const CreateChallenge: FC = () => {
   const dispatch = useTypedDispatch();
   return (
     <div>

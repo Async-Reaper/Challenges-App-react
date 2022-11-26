@@ -1,16 +1,13 @@
 import { Button } from "@mui/material";
 import React, { FC } from "react";
 import { useNavigate } from "react-router-dom";
-import { useTypedSelector } from "../../hooks/useTypedSelector";
-import { IChallenge } from "../../models/IChallenge";
-import ChallengeWrapper from "../UI/ChallengeWrapper/ChallengeWrapper";
+import { useTypedSelector } from "../../../hooks/useTypedSelector";
+import { IChallenge } from "../../../models/IChallenge";
+import ChallengeWrapper from "../../UI/ChallengeWrapper/ChallengeWrapper";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
+import {IChallengeItemProps} from "./ChallengeItem.types";
 
-interface ChallengeItemProps {
-  challenge: IChallenge;
-}
-
-const ChallengesItem: FC<ChallengeItemProps> = ({ challenge }) => {
+const ChallengeItem: FC<IChallengeItemProps> = ({ challenge }) => {
   const navigate = useNavigate();
   const { loginStatus } = useTypedSelector((state) => state.login);
 
@@ -34,4 +31,4 @@ const ChallengesItem: FC<ChallengeItemProps> = ({ challenge }) => {
   );
 };
 
-export default ChallengesItem;
+export default ChallengeItem;

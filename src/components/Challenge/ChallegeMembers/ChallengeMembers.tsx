@@ -1,17 +1,16 @@
-import { Button } from "@mui/material";
-import { FC } from "react";
-import { useParams } from "react-router-dom";
-import { useTypedDispatch } from "../../hooks/useTypedDispatch";
-import { useTypedSelector } from "../../hooks/useTypedSelector";
-import { IChallengeMember } from "../../models/IChallengeMembers";
-import { postApi } from "../../services/PostService";
-import { setAcceptStatus } from "../../store/reducers/challengesSlice";
-import ChallengeWrapper from "../UI/ChallengeWrapper/ChallengeWrapper";
+import {Button} from "@mui/material";
+import {FC} from "react";
+import {useParams} from "react-router-dom";
+import {useTypedDispatch} from "../../../hooks/useTypedDispatch";
+import {useTypedSelector} from "../../../hooks/useTypedSelector";
+import {postApi} from "../../../services/PostService";
+import {setAcceptStatus} from "../../../store/reducers/challengesSlice";
+import ChallengeWrapper from "../../UI/ChallengeWrapper/ChallengeWrapper";
+import {IChallengeMembersProps} from "./ChallengeMembers.types";
 
-interface ChallengeMembersProps {
-  challengeMembers: IChallengeMember[];
-}
-const ChallengeMembers: FC<ChallengeMembersProps> = ({ challengeMembers }) => {
+
+
+const ChallengeMembers: FC<IChallengeMembersProps> = ({ challengeMembers }) => {
   const { acceptStatus } = useTypedSelector((state) => state.challenges);
   const [acceptChallenge, {}] = postApi.useAcceptChallengeMutation();
   const dispatch = useTypedDispatch();

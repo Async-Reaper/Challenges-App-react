@@ -1,50 +1,24 @@
-import styled from "@emotion/styled";
-import React, { FC } from "react";
-import { Link } from "react-router-dom";
-import ButtonLink from "../../Button/ButtonLink";
-import ModeStandbyIcon from "@mui/icons-material/ModeStandby";
-import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
 import AssignmentIndOutlinedIcon from "@mui/icons-material/AssignmentIndOutlined";
-
-const AsidePublic = styled("div")({
-  display: "grid",
-  gridTemplateRows: "1fr 1fr 1fr",
-  gridTemplateColumns: "1fr",
-  gridGap: 15,
-  "@media (max-width: 750px)": {
-    gridTemplateRows: "1fr",
-    gridTemplateColumns: "1fr 1fr 1fr",
-  },
-  "@media (max-width: 520px)": {
-    gridTemplateRows: "1fr",
-    gridTemplateColumns: "1fr 1fr",
-  },
-  "@media (max-width: 360px)": {
-    gridTemplateRows: "1fr",
-    gridTemplateColumns: "1fr",
-  },
-});
+import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
+import ModeStandbyIcon from "@mui/icons-material/ModeStandby";
+import { FC } from "react";
+import ButtonLink from "../../Button/ButtonLink/ButtonLink";
+import { AsidePublic } from "./SidebarPublic.style";
 
 const SidebarPublic: FC = () => {
   return (
     <AsidePublic data-testid="sidebar-public">
-      <ButtonLink>
+      <ButtonLink to={"/login"} data-testid="link-login">
         <LoginOutlinedIcon />
-        <Link to={"/login"} data-testid="link-login">
-          Login
-        </Link>
+        Login
       </ButtonLink>
-      <ButtonLink>
+      <ButtonLink to={"/signup"} data-testid="link-signup">
         <AssignmentIndOutlinedIcon />
-        <Link to={"/signup"} data-testid="link-signup">
-          Signup
-        </Link>
+        Signup
       </ButtonLink>
-      <ButtonLink>
+      <ButtonLink to={"/challenges"} data-testid="link-challenges">
         <ModeStandbyIcon />
-        <Link to={"/challenges"} data-testid="link-challenges">
-          Challenges
-        </Link>
+        Challenges
       </ButtonLink>
     </AsidePublic>
   );

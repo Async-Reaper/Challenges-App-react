@@ -1,17 +1,8 @@
-import styled from "@emotion/styled";
-import React, { FC } from "react";
+import React, {FC} from "react";
+import {IMainProps} from "./MainWrapper.types";
+import {Main} from "./MainWrapper.style";
 
-interface MainProps {
-  children: React.ReactNode;
-  dataTestid?: string;
-}
-
-const Main = styled("main")({
-  margin: "0 auto",
-  padding: 20,
-});
-
-const MainWrapper: FC<MainProps> = ({ children, dataTestid }) => {
+const MainWrapper: FC<IMainProps> = ({ children, dataTestid }) => {
   return <Main data-testid={dataTestid}>{children}</Main>;
 };
 
