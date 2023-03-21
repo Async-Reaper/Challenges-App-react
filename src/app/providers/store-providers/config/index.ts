@@ -1,13 +1,13 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { postApi } from '../services/PostService'
-import challengesSlice from "./reducers/challengesSlice";
-import dateSlice from "./reducers/dateSlice";
-import errorSlice from "./reducers/errorSlice";
-import loginSlice from "./reducers/loginSlice";
-import modalSlice from "./reducers/modalSlice";
-import popupSlice from "./reducers/popupSlice";
-import settingsSlice from "./reducers/settingsSlice";
-import signupSlice from "./reducers/signupSlice";
+import { postApi } from '../../../../services/PostService'
+import challengesSlice from "../../../../store/reducers/challengesSlice";
+import dateSlice from "../../../../store/reducers/dateSlice";
+import errorSlice from "../../../../store/reducers/errorSlice";
+import loginSlice from "../../../../store/reducers/loginSlice";
+import modalSlice from "../../../../store/reducers/modalSlice";
+import popupSlice from "../../../../store/reducers/popupSlice";
+import settingsSlice from "../../../../store/reducers/settingsSlice";
+import signupSlice from "../../../../store/reducers/signupSlice";
 
 const rootReducer = combineReducers({
     login: loginSlice,

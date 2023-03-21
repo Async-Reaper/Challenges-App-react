@@ -2,10 +2,10 @@ import { Button } from "@mui/material";
 import React, { FC } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTypedSelector } from "../../../hooks/useTypedSelector";
-import { IChallenge } from "../../../models/IChallenge";
-import ChallengeWrapper from "../../UI/ChallengeWrapper/ChallengeWrapper";
+import { IChallenge } from "../../../shared/libs/types/IChallenge";
+import ChallengeWrapper from "../../../shared/ui/ChallengeWrapper/ChallengeWrapper";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
-import {IChallengeItemProps} from "./ChallengeItem.types";
+import { IChallengeItemProps } from "./ChallengeItem.types";
 
 const ChallengeItem: FC<IChallengeItemProps> = ({ challenge }) => {
   const navigate = useNavigate();
@@ -19,11 +19,7 @@ const ChallengeItem: FC<IChallengeItemProps> = ({ challenge }) => {
       <li>Members amount: {challenge.members_amount}</li>
       <li>Finish datetime: {challenge.finish_datetime}</li>
       {loginStatus && (
-        <Button
-          data-testid="link-challengeById"
-          variant="contained"
-          onClick={() => navigate(`/challenges/${challenge.challenge_id}`)}
-        >
+        <Button data-testid="link-challengeById" variant="contained" onClick={() => navigate(`/challenges/${challenge.challenge_id}`)}>
           <InfoOutlinedIcon />
         </Button>
       )}

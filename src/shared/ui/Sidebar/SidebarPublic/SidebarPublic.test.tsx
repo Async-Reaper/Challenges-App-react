@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { renderReduxRoute } from "../../../../helpers/testing/renderReduxRouter";
+import { renderReduxRoute } from "../../../../shared/helpers/testing/renderReduxRouter";
 import SidebarPublic from "./SidebarPublic";
 
 describe("Testing sidebar public", () => {

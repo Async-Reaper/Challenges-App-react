@@ -1,9 +1,9 @@
 import React, { FC, useEffect } from "react";
 import ChallengeItem from "../../components/Challenge/ChallengeItem/ChallengeItem";
 import CreateChallenge from "../../components/Challenge/CreateChallenge/CreateChallenge";
-import Loader from "../../components/UI/Loader/Loader";
-import MainWrapper from "../../components/UI/MainWrapper/MainWrapper";
-import Popup from "../../components/UI/Popup/Popup";
+import Loader from "../../shared/ui/Loader/Loader";
+import MainWrapper from "../../shared/ui/MainWrapper/MainWrapper";
+import Popup from "../../shared/ui/Popup/Popup";
 import { useTypedDispatch } from "../../hooks/useTypedDispatch";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 import { getChallenges } from "../../services/ChallengesService";
@@ -23,13 +23,7 @@ const Challenges: FC = () => {
     <MainWrapper dataTestid="challenges-page">
       <Popup />
       {loginStatus && <CreateChallenge />}
-      {loading ? (
-        <Loader />
-      ) : (
-        challenges.map((challenge) => (
-          <ChallengeItem key={challenge.challenge_id} challenge={challenge} />
-        ))
-      )}
+      {loading ? <Loader /> : challenges.map((challenge) => <ChallengeItem key={challenge.challenge_id} challenge={challenge} />)}
     </MainWrapper>
   );
 };

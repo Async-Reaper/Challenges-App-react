@@ -1,8 +1,8 @@
 import { render } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router-dom";
-import AppRoute from "../../components/AppRoute";
-import { setupStore } from "../../store/store";
+import AppRoute from "../../../components/AppRoute";
+import { setupStore } from "../../../app/providers/store-providers/config";
 
 export const renderReduxRoute = (component?: any, options?: any) => {
   const store = setupStore(options?.route);

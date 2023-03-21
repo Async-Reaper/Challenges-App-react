@@ -1,8 +1,8 @@
 import React, { FC } from "react";
-import SettingsAccordion from "../../components/Settings/SettingsAccordion";
-import Loader from "../../components/UI/Loader/Loader";
-import MainWrapper from "../../components/UI/MainWrapper/MainWrapper";
-import Popup from "../../components/UI/Popup/Popup";
+import SettingsAccordion from "../../widgets/settings/SettingsAccordion";
+import Loader from "../../shared/ui/Loader/Loader";
+import MainWrapper from "../../shared/ui/MainWrapper/MainWrapper";
+import Popup from "../../shared/ui/Popup/Popup";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 
 const Settings: FC = () => {

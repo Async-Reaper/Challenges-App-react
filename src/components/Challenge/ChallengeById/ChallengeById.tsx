@@ -1,9 +1,8 @@
-import {Button} from "@mui/material";
-import React, {FC} from "react";
-import {useNavigate} from "react-router-dom";
-import ChallengeWrapper from "../../UI/ChallengeWrapper/ChallengeWrapper";
-import {IChallengeByIdProps} from "./ChallengeById.types";
-
+import { Button } from "@mui/material";
+import React, { FC } from "react";
+import { useNavigate } from "react-router-dom";
+import ChallengeWrapper from "../../../shared/ui/ChallengeWrapper/ChallengeWrapper";
+import { IChallengeByIdProps } from "./ChallengeById.types";
 
 const ChallengeById: FC<IChallengeByIdProps> = ({ challenge }) => {
   const navigate = useNavigate();

@@ -1,7 +1,7 @@
 import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import axios from "axios";
-import { renderReduxRoute } from "../../helpers/testing/renderReduxRouter";
+import { renderReduxRoute } from "../../shared/helpers/testing/renderReduxRouter";
 
 jest.mock("axios");
 const mockedAxios = axios as jest.Mocked<typeof axios>;
@@ -53,9 +53,7 @@ describe("Testing challenge component", () => {
     renderReduxRoute(null, { route: "/", login: { loginStatus: true } });
 
     const challengeItem = await screen.findAllByTestId("challenge-item");
-    const linkChallengeByID = await screen.findAllByTestId(
-      "link-challengeById"
-    );
+    const linkChallengeByID = await screen.findAllByTestId("link-challengeById");
 
     expect(linkChallengeByID[0]).toBeInTheDocument();
     userEvent.click(linkChallengeByID[0]);
